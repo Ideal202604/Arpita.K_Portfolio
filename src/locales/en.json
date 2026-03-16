@@ -1,0 +1,103 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "academic": "Academic Profile",
+    "experience": "Experience",
+    "skills": "Skills",
+    "research": "Research & Publications",
+    "workshops": "Workshops & Training",
+    "awards": "Awards",
+    "contact": "Contact",
+    "resume": "Resume"
+  },
+  "hero": {
+    "name": "Dr. Arpita Pankaj Kathane",
+    "title": "Director – ICS Global",
+    "subtitle": "Design Thinker & Author",
+    "tagline": "18+ years of excellence in education, training, research & leadership",
+    "downloadResume": "Download Resume",
+    "contactNow": "Contact Now",
+    "viewResume": "View Resume",
+    "scrollDown": "Scroll Down"
+  },
+  "about": {
+    "heading": "About Me",
+    "bio1": "A technically sound and empathetic professional with profound exposure in Teaching, Institute Management, Training, Module Design & Development, Content Development, and Publication with more than 18+ years of experience.",
+    "bio2": "An effective communicator with excellent relationship building & interpersonal skills, strong analytical, problem solving & organizational abilities. Currently serving as Director at Idealizeer Content Solutions Pvt. Ltd.",
+    "highlights": {
+      "director": "Director – ICS Global",
+      "designThinker": "Design Thinker & Author",
+      "researcher": "Author & Researcher",
+      "experience": "18+ Years Experience"
+    },
+    "contact": {
+      "phone": "Phone",
+      "email": "Email",
+      "linkedin": "LinkedIn"
+    }
+  },
+  "academic": {
+    "heading": "Academic Profile",
+    "subheading": "Educational Journey & Certifications"
+  },
+  "gallery": {
+    "heading": "Gallery",
+    "subheading": "Highlights & Moments"
+  },
+  "skills": {
+    "heading": "Skills & Expertise",
+    "subheading": "Core competencies developed over 18+ years"
+  },
+  "experience": {
+    "heading": "Employment History",
+    "subheading": "Professional journey across leading institutions",
+    "keyResults": "Key Result Areas",
+    "expand": "Read More",
+    "collapse": "Show Less"
+  },
+  "research": {
+    "heading": "Research & Publications",
+    "subheading": "Academic contributions & scholarly works",
+    "books": "Books",
+    "thesis": "PhD Thesis",
+    "chapter": "Book Chapter",
+    "conferences": "Conferences & Seminars",
+    "honor": "Honors & Recognitions"
+  },
+  "conferences": {
+    "heading": "Conferences & Seminars",
+    "subheading": "Academic engagement & knowledge sharing"
+  },
+  "workshops": {
+    "heading": "Trainings & Workshops",
+    "subheading": "Empowering professionals through expert-led sessions",
+    "general": "General Trainings",
+    "specialized": "Specialized Trainings"
+  },
+  "contributions": {
+    "heading": "Positions & Contributions",
+    "subheading": "Leadership roles & field contributions",
+    "positions": "Positions Held",
+    "ldField": "Contribution to Learning Disability Field",
+    "dtField": "Contribution to Design Thinking Field"
+  },
+  "awards": {
+    "heading": "Awards & Recognition",
+    "subheading": "Celebrating excellence and impact"
+  },
+  "contact": {
+    "heading": "Get In Touch",
+    "subheading": "Let's collaborate and create something impactful",
+    "name": "Your Name",
+    "email": "Your Email",
+    "message": "Your Message",
+    "send": "Send Message",
+    "success": "Message sent successfully!",
+    "successDesc": "Thank you for reaching out. Dr. Arpita will get back to you shortly."
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "builtBy": "Built by"
+  }
+}
