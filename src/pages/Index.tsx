@@ -3,6 +3,7 @@ import { ThemeProvider } from '@/contexts/ThemeContext';
 import { LanguageProvider } from '@/contexts/LanguageContext';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
+import ScrollNavButtons from '@/components/ScrollNavButtons';
 
 const About = lazy(() => import('@/components/About'));
 const Gallery = lazy(() => import('@/components/Gallery'));
@@ -45,6 +46,7 @@ const Index = () => {
           <Suspense fallback={null}>
             <Footer />
           </Suspense>
+          <ScrollNavButtons />
         </div>
       </LanguageProvider>
     </ThemeProvider>

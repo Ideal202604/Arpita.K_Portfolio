@@ -59,7 +59,7 @@ const Navbar: React.FC = () => {
             <div className="w-10 h-10 rounded-xl overflow-hidden shadow-gold border border-border/80 flex-shrink-0 bg-card">
               <img src={ICSLogo} alt="ICS Global Logo" className="w-full h-full object-contain p-0.5" loading="lazy" />
             </div>
-            <div className="hidden sm:block">
+            <div className="hidden 2xl:block">
               <span className="font-bold text-foreground text-sm leading-none block font-display">
                 ICS Global
               </span>

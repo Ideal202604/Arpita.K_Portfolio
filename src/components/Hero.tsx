@@ -52,7 +52,7 @@ const Hero: React.FC = () => {
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-white/20 mb-5 self-start"
             >
               <div className="w-2 h-2 rounded-full bg-teal animate-pulse" />
-              <span className="text-xs font-medium hero-text-secondary">Director - ICS Global</span>
+              <span className="text-xs font-medium text-emerald-900 dark:text-emerald-300">Director - ICS Global</span>
             </motion.div>
 
             {/* Name */}
@@ -72,7 +72,7 @@ const Hero: React.FC = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="flex flex-wrap items-center gap-2 mb-2"
             >
-              <span className="text-lg font-semibold text-gold">{t.hero.title}</span>
+              <span className="text-lg font-semibold text-emerald-900 dark:text-emerald-300">{t.hero.title}</span>
               <span className="hero-text-secondary opacity-70">•</span>
               <span className="text-lg text-teal font-medium">{t.hero.subtitle}</span>
             </motion.div>
@@ -184,7 +184,7 @@ const Hero: React.FC = () => {
                   className="absolute -bottom-4 -right-3 glass border border-border/70 rounded-[16px] px-4 py-2.5 shadow-xl"
                 >
                   <div className="text-xs font-semibold hero-text-primary">PhD in Education</div>
-                  <div className="text-xs text-gold font-medium">SGBAU, 2018</div>
+                  <div className="text-xs font-medium text-emerald-900 dark:text-emerald-300">SGBAU, 2018</div>
                 </motion.div>
 
                 {/* Floating badge top */}
@@ -194,7 +194,7 @@ const Hero: React.FC = () => {
                   className="absolute -top-4 -left-3 glass border border-border/70 rounded-[16px] px-4 py-2.5 shadow-xl"
                 >
                   <div className="text-xs font-semibold hero-text-primary">London Book</div>
-                  <div className="text-xs text-gold font-medium">World Record 🏆</div>
+                  <div className="text-xs font-medium text-emerald-900 dark:text-emerald-300">World Record 🏆</div>
                 </motion.div>
               </motion.div>
             </motion.div>
