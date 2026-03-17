@@ -152,7 +152,7 @@ const Hero: React.FC = () => {
           </div>
 
           {/* Right: Photo — fixed aspect ratio 3:4 glassmorphism frame */}
-          <div className="order-4 lg:order-2 flex justify-center lg:justify-end mt-6 lg:mt-0">
+          <div className="order-4 lg:order-2 flex justify-start lg:justify-end mt-6 lg:mt-0 [@media(hover:none)_and_(pointer:coarse)]:justify-start">
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -166,7 +166,7 @@ const Hero: React.FC = () => {
               <motion.div
                 className="relative glass rounded-[16px] p-3 border border-border/70 shadow-card-premium"
               >
-                <div className="relative overflow-hidden rounded-[16px] w-[84vw] max-w-[320px] sm:w-[52vw] sm:max-w-[370px] md:w-[40vw] md:max-w-[390px] lg:w-[clamp(300px,30vw,360px)] bg-muted/30 media-frame flex items-center justify-center p-2">
+                <div className="relative overflow-hidden rounded-[16px] w-[84vw] max-w-[320px] sm:w-[52vw] sm:max-w-[370px] md:w-[40vw] md:max-w-[390px] lg:w-[clamp(300px,30vw,360px)] [@media(hover:none)_and_(pointer:coarse)]:w-[88vw] [@media(hover:none)_and_(pointer:coarse)]:max-w-[360px] bg-muted/30 media-frame flex items-center justify-center p-2">
                   <img
                     src={PHOTO_URL}
                     alt="Dr. Arpita Pankaj Kathane"

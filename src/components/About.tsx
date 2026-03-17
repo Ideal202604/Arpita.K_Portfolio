@@ -48,10 +48,10 @@ const About: React.FC = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            className="lg:col-span-4 flex flex-col items-center"
+            className="lg:col-span-4 flex flex-col items-start md:items-center [@media(hover:none)_and_(pointer:coarse)]:items-start"
           >
             <motion.div
-              className="relative p-3 glass rounded-[16px] border border-border/70 shadow-card-premium w-[88vw] max-w-[380px] sm:w-[60vw] sm:max-w-[370px] lg:w-[clamp(300px,30vw,360px)] lg:max-w-none"
+              className="relative p-3 glass rounded-[16px] border border-border/70 shadow-card-premium w-[88vw] max-w-[380px] sm:w-[60vw] sm:max-w-[370px] lg:w-[clamp(300px,30vw,360px)] lg:max-w-none [@media(hover:none)_and_(pointer:coarse)]:w-[88vw] [@media(hover:none)_and_(pointer:coarse)]:max-w-[360px]"
             >
               <div className="relative w-full bg-muted/30 media-frame flex items-center justify-center p-2">
                 <img
@@ -65,7 +65,7 @@ const About: React.FC = () => {
             </motion.div>
 
             {/* Highlight cards with 3D hover */}
-            <div className="grid grid-cols-2 gap-3 mt-6 w-[88vw] max-w-[380px] sm:w-[60vw] sm:max-w-[370px] lg:w-[clamp(300px,30vw,360px)] lg:max-w-none">
+            <div className="grid grid-cols-2 gap-3 mt-6 w-[88vw] max-w-[380px] sm:w-[60vw] sm:max-w-[370px] lg:w-[clamp(300px,30vw,360px)] lg:max-w-none [@media(hover:none)_and_(pointer:coarse)]:w-[88vw] [@media(hover:none)_and_(pointer:coarse)]:max-w-[360px]">
               {highlights.map((h, i) => (
                 <motion.div
                   key={i}
