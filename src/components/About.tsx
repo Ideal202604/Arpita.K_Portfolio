@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Linkedin, Star, Lightbulb, BookOpen, Clock } from 'lucide-react';
+import { Mail, Linkedin, Star, Lightbulb, BookOpen, Clock, Award, Book } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const PHOTO_URL = '/Arpita-forbes-3.jpeg';
@@ -16,8 +16,8 @@ const About: React.FC = () => {
   const highlights = [
     { icon: Star, label: t.about.highlights.director, color: 'text-gold' },
     { icon: Lightbulb, label: t.about.highlights.designThinker, color: 'text-teal' },
-    { icon: BookOpen, label: t.about.highlights.researcher, color: 'text-gold' },
-    { icon: Clock, label: t.about.highlights.experience, color: 'text-teal' },
+    { icon: Book, label: 'Research & Publications', color: 'text-gold' },
+    { icon: Award, label: 'Awards & Recognition', color: 'text-teal' },
   ];
 
   const contactItems = [
@@ -95,11 +95,11 @@ const About: React.FC = () => {
             <h3 className="text-2xl font-bold text-foreground mb-2">
               Dr. Arpita Pankaj Kathane
             </h3>
-            <p className="text-gold font-semibold mb-1 text-sm">Design Thinker & Author</p>
-            <p className="text-teal font-medium mb-5 text-sm">PhD in Education | SET Qualified | Director – ICS Global</p>
 
-            <p className="text-muted-foreground leading-relaxed mb-3">{t.about.bio1}</p>
-            <p className="text-muted-foreground leading-relaxed mb-6">{t.about.bio2}</p>
+            <p className="text-gold font-semibold mb-1 text-sm">Director & Chief Operating Officer</p>
+            <p className="text-muted-foreground leading-relaxed mb-6">
+              London Book of World Records honouree and award-winning design-thinking expert, Dr. Arpita brings decades of leadership in content strategy, learner-centric programme design, and large-scale training. As Director & CEO of ICS Global, she has built AI-driven content ecosystems, ghost-written 19 books, and led high-impact workshops at top universities & industry forums. An accomplished author of international scholarly volumes, she blends empathy-led coaching with data-powered optimisation to drive excellence in every project.
+            </p>
 
             {/* Contact Info — flex rows with equal spacing */}
             <div className="space-y-3">
