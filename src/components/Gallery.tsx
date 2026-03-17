@@ -8,7 +8,6 @@ import Arpita1 from '@/assets/Arpita1.svg';
 import Arpita2 from '@/assets/Arpita2.svg';
 import Arpita3 from '@/assets/Arpita3.svg';
 import Arpita4 from '@/assets/Arpita4.svg';
-import Arpita5 from '@/assets/Arpita5.svg';
 import ArpitaKathane from '@/assets/Arpita-kathane.svg';
 
 const fadeInUp = {
@@ -56,7 +55,7 @@ const Gallery: React.FC = () => {
 
         <div className="grid lg:grid-cols-12 gap-3 lg:gap-4 items-stretch">
           {/* Left collage: four smaller images */}
-          <div className="lg:col-span-7 grid grid-cols-2 gap-3 lg:gap-4 auto-rows-[140px] sm:auto-rows-[180px] md:auto-rows-[210px]">
+          <div className="lg:col-span-7 grid grid-cols-2 gap-3 lg:gap-4 auto-rows-[150px] sm:auto-rows-[190px] md:auto-rows-[220px]">
             {thumbnails.map((item, i) => (
               <motion.div
                 key={item.src}
@@ -67,7 +66,7 @@ const Gallery: React.FC = () => {
                 viewport={{ once: true }}
               >
                 <motion.div
-                  className="relative h-full rounded-[14px] overflow-hidden cursor-zoom-in"
+                  className="relative h-full rounded-[14px] overflow-hidden cursor-zoom-in bg-muted/35 border border-border/60 p-2"
                   onClick={() => openPreview(item)}
                   role="button"
                   tabIndex={0}
@@ -78,7 +77,7 @@ const Gallery: React.FC = () => {
                   <img
                     src={item.src}
                     alt={item.alt}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain"
                     loading="lazy"
                   />
                 </motion.div>
@@ -96,7 +95,7 @@ const Gallery: React.FC = () => {
             className="lg:col-span-5"
           >
             <motion.div
-              className="relative rounded-[14px] overflow-hidden cursor-zoom-in h-[290px] sm:h-[370px] md:h-[430px] lg:h-full lg:min-h-[436px]"
+              className="relative rounded-[14px] overflow-hidden cursor-zoom-in bg-muted/35 border border-border/60 p-2 h-[310px] sm:h-[390px] md:h-[450px] lg:h-full lg:min-h-[460px]"
               onClick={() => openPreview(featured)}
               role="button"
               tabIndex={0}
@@ -107,7 +106,7 @@ const Gallery: React.FC = () => {
               <img
                 src={featured.src}
                 alt={featured.alt}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-contain"
                 loading="lazy"
               />
             </motion.div>
