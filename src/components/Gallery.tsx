@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { getAwardImageClass, isStraightFrameImage } from '@/lib/awardImageDisplay';
-import { formatTitle } from '@/lib/formatTitle';
 
 import { Dialog, DialogContent } from '@/components/ui/dialog';
 
@@ -33,12 +31,9 @@ const Gallery: React.FC = () => {
     { src: Arpita2, alt: 'Gallery image 2' },
     { src: Arpita3, alt: 'Gallery image 3' },
     { src: Arpita4, alt: 'Gallery image 4' },
-  ];
-
-  const highlightImages = [
-    'Felicitation on a special occasion from my Ph.D. Guide, Dr. G. L. Gulhane.png',
-    'FELICITATION AS A GUEST SPEAKER AT MGM UNIVERSITY.png',
-    'SHREEYASH COLLEGE OF ENGINEERING, CH. SAMBHAJI NAGAR.png',
+    { src: '/assets/awards/Felicitation on a special occasion from my Ph.D. Guide, Dr. G. L. Gulhane.png', alt: 'Felicitation on a special occasion from my Ph.D. Guide, Dr. G. L. Gulhane.png' },
+    { src: '/assets/awards/FELICITATION AS A GUEST SPEAKER AT MGM UNIVERSITY.png', alt: 'FELICITATION AS A GUEST SPEAKER AT MGM UNIVERSITY.png' },
+    { src: '/assets/awards/SHREEYASH COLLEGE OF ENGINEERING, CH. SAMBHAJI NAGAR.png', alt: 'SHREEYASH COLLEGE OF ENGINEERING, CH. SAMBHAJI NAGAR.png' },
   ];
 
   const openPreview = (item: { src: string; alt: string }) => {
@@ -119,36 +114,6 @@ const Gallery: React.FC = () => {
               />
             </motion.div>
           </motion.div>
-        </div>
-
-        <div className="mt-10">
-          <h3 className="mb-4 text-lg font-bold text-foreground">Gallery Highlights</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 items-start">
-            {highlightImages.map((fileName, i) => (
-              <motion.div
-                key={fileName}
-                custom={i + 5}
-                variants={fadeInUp}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                className="group self-start rounded-[16px] border border-border bg-card p-3 shadow-card-premium transition-all hover:-translate-y-1 hover:shadow-xl"
-              >
-                <div className="relative overflow-hidden rounded-[12px] border border-border/70">
-                  <img
-                    src={`/assets/awards/${fileName}`}
-                    alt={fileName}
-                    loading="lazy"
-                    className={`${getAwardImageClass(fileName)} ${isStraightFrameImage(fileName) ? '' : 'transition-transform duration-300 group-hover:scale-105'}`}
-                  />
-                  <span className="absolute left-2 top-2 rounded-full border border-teal/30 bg-background/85 px-2 py-0.5 text-[10px] font-semibold text-teal">
-                    Gallery
-                  </span>
-                </div>
-                <h4 className="px-1 pt-3 text-sm font-semibold leading-snug text-foreground">{formatTitle(fileName)}</h4>
-              </motion.div>
-            ))}
-          </div>
         </div>
 
         <Dialog

@@ -27,7 +27,6 @@ const conferenceImages = [
   'UNI 20-G20 CONFERENCE WITH DELEGATES.png',
   'UNI 20-G20 CONFERENCE WITH DELEGATES2.png',
   'CONFERENCE ON NEP, ORGANIZED AT D Y PATIL, PIMPRI.png',
-  'JUDGE- PANELIST FOR IDEA PITCH - SYMBIOSIS PUNE.png',
 ];
 
 const typeColors: Record<string, string> = {
