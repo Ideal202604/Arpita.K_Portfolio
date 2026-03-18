@@ -31,7 +31,7 @@ const ScrollNavButtons: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 20 }}
           transition={{ duration: 0.22, ease: 'easeOut' }}
-          className="fixed bottom-6 right-4 sm:right-6 z-[60] flex flex-col gap-2"
+          className="fixed bottom-6 left-4 sm:left-6 z-[60] flex flex-col gap-2"
         >
           <button
             type="button"

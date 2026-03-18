@@ -4,6 +4,7 @@ import { LanguageProvider } from '@/contexts/LanguageContext';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import ScrollNavButtons from '@/components/ScrollNavButtons';
+import ChatbotWidget from '@/components/ChatbotWidget';
 
 const About = lazy(() => import('@/components/About'));
 const Gallery = lazy(() => import('@/components/Gallery'));
@@ -43,6 +44,7 @@ const Index = () => {
             <Footer />
           </Suspense>
           <ScrollNavButtons />
+          <ChatbotWidget />
         </div>
       </LanguageProvider>
     </ThemeProvider>
