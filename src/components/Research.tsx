@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { BookOpen, FileText, Mic, Award, BadgeCheck } from 'lucide-react';
+import { BookOpen, FileText, Mic, Award } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const researchBuckets = [
@@ -104,16 +104,6 @@ const Research: React.FC = () => {
           <div className="w-20 h-1 gradient-gold mx-auto rounded-full mt-4" />
         </motion.div>
 
-        <div className="mb-8 rounded-[16px] border border-gold/30 bg-gold/10 p-4">
-          <div className="flex items-center gap-2">
-            <BadgeCheck className="h-4 w-4 text-gold" />
-            <h3 className="text-sm font-bold text-foreground">Design Thinking Featured</h3>
-          </div>
-          <p className="mt-2 text-xs text-muted-foreground">
-            Design Thinking-oriented publications are surfaced prominently across book chapters and conference papers.
-          </p>
-        </div>
-
         <div className="grid lg:grid-cols-2 gap-6">
           {researchBuckets.map((bucket, i) => (
             <motion.div
@@ -122,8 +112,9 @@ const Research: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-30px' }}
               transition={{ duration: 0.5, delay: i * 0.06 }}
-              className={`bg-card border ${bucket.border} rounded-[16px] p-6 card-3d shadow-card-premium`}
+              className={`bg-card border ${bucket.border} rounded-[16px] p-6 card-3d shadow-card-premium hover:-translate-y-1 hover:shadow-xl transition-all`}
             >
+              <div className="mb-4 h-1 w-14 rounded-full bg-gradient-to-r from-gold/70 to-teal/60" />
               <div className="flex items-center gap-3 mb-3">
                 <div className="w-10 h-10 rounded-[12px] bg-background/80 flex items-center justify-center flex-shrink-0">
                   <bucket.icon className={`w-5 h-5 ${bucket.iconColor}`} />
@@ -133,7 +124,7 @@ const Research: React.FC = () => {
 
               <div className="space-y-3">
                 {bucket.items.map((item, idx) => (
-                  <div key={idx} className="rounded-[12px] border border-border/70 bg-background/70 p-3">
+                  <div key={idx} className="rounded-[12px] border border-border/70 bg-background/70 p-3 hover:border-gold/30 transition-colors">
                     <h3 className="text-sm font-semibold text-foreground leading-snug">{item.title}</h3>
                     <p className="mt-1 text-xs text-muted-foreground leading-relaxed">{item.description}</p>
                     <p className="mt-2 text-[11px] font-medium text-gold">{item.institution}</p>

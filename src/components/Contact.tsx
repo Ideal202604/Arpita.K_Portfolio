@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Linkedin, Send, CheckCircle } from 'lucide-react';
+import { Mail, Linkedin, Globe, Send, CheckCircle } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -40,6 +40,7 @@ const Contact: React.FC = () => {
   const contactItems = [
     { icon: Mail, label: 'Email', value: 'arpita@idealizeer.in', href: 'mailto:arpita@idealizeer.in' },
     { icon: Linkedin, label: 'LinkedIn', value: 'Dr. Arpita Kathane', href: 'https://www.linkedin.com/in/dr-arpita-kathane-8683461a1/' },
+    { icon: Globe, label: 'Website', value: 'Idealizeer Solutions, Pune', href: 'https://www.idealizeer.com/' },
   ];
 
   return (

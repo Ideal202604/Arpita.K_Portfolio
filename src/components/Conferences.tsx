@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Calendar, MapPin, Lightbulb } from 'lucide-react';
+import { Calendar, MapPin } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const conferences = [
@@ -49,16 +49,6 @@ const Conferences: React.FC = () => {
           <div className="w-20 h-1 gradient-gold mx-auto rounded-full mt-4" />
         </motion.div>
 
-        <div className="mb-8 rounded-[16px] border border-gold/30 bg-gold/10 p-4">
-          <div className="flex items-center gap-2">
-            <Lightbulb className="h-4 w-4 text-gold" />
-            <h3 className="text-sm font-bold text-foreground">Design Thinking Focus</h3>
-          </div>
-          <p className="mt-2 text-xs text-muted-foreground">
-            Conferences and seminars are arranged with Design Thinking contributions highlighted first.
-          </p>
-        </div>
-
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {conferences.map((conf, i) => (
             <motion.div
@@ -67,10 +57,9 @@ const Conferences: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-20px' }}
               transition={{ duration: 0.4, delay: i * 0.04 }}
-              className={`bg-card border rounded-[16px] p-5 shadow-card-premium card-3d hover:-translate-y-1 transition-transform ${
-                i === 0 ? 'border-gold ring-1 ring-gold/30 bg-gold/5' : 'border-border'
-              }`}
+              className="group bg-card border border-border rounded-[16px] p-5 shadow-card-premium card-3d hover:-translate-y-1 hover:shadow-xl transition-all"
             >
+              <div className="mb-4 h-1 w-14 rounded-full bg-gradient-to-r from-gold/70 to-teal/60" />
               <div className="flex items-center justify-between gap-3 mb-3">
                 <div className="flex items-center gap-2">
                   <Calendar className="w-4 h-4 text-gold" />
@@ -81,7 +70,7 @@ const Conferences: React.FC = () => {
                 </span>
               </div>
               <div className="min-w-0">
-                <h3 className={`text-sm font-semibold leading-snug ${i === 0 ? 'text-gold' : 'text-foreground'}`}>{conf.title}</h3>
+                <h3 className="text-sm font-semibold leading-snug text-foreground group-hover:text-gold transition-colors">{conf.title}</h3>
                 <div className="mt-2 min-h-4">
                   {conf.location ? (
                     <div className="flex items-center gap-1">

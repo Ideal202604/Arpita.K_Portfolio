@@ -54,7 +54,8 @@ const Contributions: React.FC = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <div className="bg-card border border-gold/20 rounded-[16px] p-6 shadow-card-premium h-full">
+            <div className="bg-card border border-gold/20 rounded-[16px] p-6 shadow-card-premium h-full hover:-translate-y-1 hover:shadow-xl transition-all">
+              <div className="mb-4 h-1 w-14 rounded-full bg-gradient-to-r from-gold/70 to-teal/60" />
               <div className="flex items-center gap-3 mb-5">
                 <div className="w-10 h-10 rounded-[12px] gradient-gold flex items-center justify-center">
                   <Building2 className="w-5 h-5 text-white" />
@@ -80,7 +81,8 @@ const Contributions: React.FC = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <div className="bg-card border border-teal/20 rounded-[16px] p-6 shadow-card-premium h-full">
+            <div className="bg-card border border-teal/20 rounded-[16px] p-6 shadow-card-premium h-full hover:-translate-y-1 hover:shadow-xl transition-all">
+              <div className="mb-4 h-1 w-14 rounded-full bg-gradient-to-r from-gold/70 to-teal/60" />
               <div className="flex items-center gap-3 mb-5">
                 <div className="w-10 h-10 rounded-[12px] bg-teal flex items-center justify-center">
                   <FileText className="w-5 h-5 text-white" />
@@ -107,8 +109,9 @@ const Contributions: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="bg-card border border-border rounded-[16px] p-6 shadow-card-premium"
+            className="bg-card border border-border rounded-[16px] p-6 shadow-card-premium hover:-translate-y-1 hover:shadow-xl transition-all"
           >
+            <div className="mb-4 h-1 w-14 rounded-full bg-gradient-to-r from-gold/70 to-teal/60" />
             <h3 className="mb-4 text-lg font-bold text-foreground">Roles & Responsibilities</h3>
             <div className="space-y-3">
               {rolesAndResponsibilities.map((item, i) => (
@@ -125,8 +128,9 @@ const Contributions: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.05 }}
-            className="bg-card border border-border rounded-[16px] p-6 shadow-card-premium"
+            className="bg-card border border-border rounded-[16px] p-6 shadow-card-premium hover:-translate-y-1 hover:shadow-xl transition-all"
           >
+            <div className="mb-4 h-1 w-14 rounded-full bg-gradient-to-r from-gold/70 to-teal/60" />
             <h3 className="mb-4 text-lg font-bold text-foreground">Training & Development Contributions</h3>
             <div className="space-y-3">
               {trainingContributions.map((item, i) => (
