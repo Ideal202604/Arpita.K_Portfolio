@@ -28,10 +28,10 @@ const Contact: React.FC = () => {
     if (Object.keys(errs).length > 0) { setErrors(errs); return; }
     setErrors({});
     setSubmitted(true);
-    const text = encodeURIComponent(
+    const body = encodeURIComponent(
       `Hello Dr. Arpita,\n\nMy name is ${form.name}.\nEmail: ${form.email}\n\nMessage:\n${form.message}`
     );
-    window.open(`https://wa.me/919890451547?text=${text}`, '_blank');
+    window.open(`mailto:arpita@idealizeer.in?subject=Portfolio Contact Request&body=${body}`, '_blank');
     toast({ title: t.contact.success, description: t.contact.successDesc });
     setForm({ name: '', email: '', message: '' });
     setTimeout(() => setSubmitted(false), 4000);

@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Mail, Linkedin, Star, Lightbulb, Award, Book } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
-const PHOTO_URL = '/Arpita-forbes-3.jpeg';
+const PHOTO_URL = 'https://res.cloudinary.com/duhhsnbwh/image/upload/v1771498895/Arpita_Kathane_sotre2.jpg';
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
@@ -14,8 +14,8 @@ const About: React.FC = () => {
   const { t } = useLanguage();
 
   const highlights = [
-    { icon: Star, label: t.about.highlights.director, color: 'text-gold' },
     { icon: Lightbulb, label: t.about.highlights.designThinker, color: 'text-teal' },
+    { icon: Star, label: t.about.highlights.director, color: 'text-gold' },
     { icon: Book, label: 'Research & Publications', color: 'text-gold' },
     { icon: Award, label: 'Awards & Recognition', color: 'text-teal' },
   ];
@@ -99,6 +99,9 @@ const About: React.FC = () => {
             <p className="text-gold font-semibold mb-1 text-sm">Director & Chief Operating Officer</p>
             <p className="text-muted-foreground leading-relaxed mb-6">
               London Book of World Records honouree and award-winning design-thinking expert, Dr. Arpita brings decades of leadership in content strategy, learner-centric programme design, and large-scale training. As Director & CEO of ICS Global, she has built AI-driven content ecosystems, ghost-written 19 books, and led high-impact workshops at top universities & industry forums. An accomplished author of international scholarly volumes, she blends empathy-led coaching with data-powered optimisation to drive excellence in every project.
+            </p>
+            <p className="mb-6 rounded-[14px] border border-gold/30 bg-gold/10 px-4 py-3 text-sm font-semibold leading-relaxed text-foreground">
+              Design Thinking Expert | London Book of World Record Winner for Academic & Social Contributions | Director - ICS GLOBAL | Visiting Faculty - Symbiosis | Content Strategist | Empathetic Academician (Experience Based Learning)
             </p>
 
             {/* Contact Info — flex rows with equal spacing */}

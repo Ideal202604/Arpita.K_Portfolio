@@ -8,12 +8,10 @@ import ScrollNavButtons from '@/components/ScrollNavButtons';
 const About = lazy(() => import('@/components/About'));
 const Gallery = lazy(() => import('@/components/Gallery'));
 const AcademicProfile = lazy(() => import('@/components/AcademicProfile'));
-const Skills = lazy(() => import('@/components/Skills'));
-const Experience = lazy(() => import('@/components/Experience'));
-const Research = lazy(() => import('@/components/Research'));
-const Conferences = lazy(() => import('@/components/Conferences'));
 const Workshops = lazy(() => import('@/components/Workshops'));
-const Contributions = lazy(() => import('@/components/Contributions'));
+const Conferences = lazy(() => import('@/components/Conferences'));
+const CorporateProfile = lazy(() => import('@/components/Contributions'));
+const Research = lazy(() => import('@/components/Research'));
 const Awards = lazy(() => import('@/components/Awards'));
 const Contact = lazy(() => import('@/components/Contact'));
 const Footer = lazy(() => import('@/components/Footer'));
@@ -33,12 +31,10 @@ const Index = () => {
               <About />
               <Gallery />
               <AcademicProfile />
-              <Skills />
-              <Experience />
-              <Research />
-              <Conferences />
               <Workshops />
-              <Contributions />
+              <Conferences />
+              <CorporateProfile />
+              <Research />
               <Awards />
               <Contact />
             </Suspense>

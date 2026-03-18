@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Globe, Github, Linkedin, Figma, ExternalLink, Phone, Mail, Zap } from 'lucide-react';
+import { X, Globe, Github, Linkedin, Figma, ExternalLink, Mail, Zap } from 'lucide-react';
 
 interface DeveloperModalProps {
   open: boolean;
@@ -39,16 +39,18 @@ const DeveloperModal: React.FC<DeveloperModalProps> = ({ open, onClose }) => {
               <div className="gradient-hero p-6 relative">
                 <button
                   onClick={onClose}
+                  title="Close"
+                  aria-label="Close"
                   className="absolute top-4 right-4 w-8 h-8 rounded-full glass flex items-center justify-center text-white/70 hover:text-white transition-colors"
                 >
                   <X className="w-4 h-4" />
                 </button>
                 <div className="flex items-center gap-4">
-                  <div className="w-16 h-16 rounded-xl gradient-gold flex items-center justify-center shadow-gold text-2xl font-bold text-white" style={{ fontFamily: 'Playfair Display, serif' }}>
+                  <div className="w-16 h-16 rounded-xl gradient-gold flex items-center justify-center shadow-gold text-2xl font-bold text-white font-display">
                     W
                   </div>
                   <div>
-                    <h3 className="font-bold text-white text-lg" style={{ fontFamily: 'Playfair Display, serif' }}>
+                    <h3 className="font-bold text-white text-lg font-display">
                       Wajid Daud Tamboli
                     </h3>
                     <p className="text-white/70 text-sm">Full Stack Developer & UI/UX Designer</p>
@@ -60,10 +62,6 @@ const DeveloperModal: React.FC<DeveloperModalProps> = ({ open, onClose }) => {
               {/* Body */}
               <div className="p-6">
                 <div className="space-y-3 mb-6">
-                  <a href="tel:+919667033839" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors">
-                    <Phone className="w-4 h-4 text-gold" />
-                    +91 9667033839
-                  </a>
                   <a href="mailto:wajiddaudtamboli123@gmail.com" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors">
                     <Mail className="w-4 h-4 text-teal" />
                     wajiddaudtamboli123@gmail.com

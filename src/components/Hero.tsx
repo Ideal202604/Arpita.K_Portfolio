@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone } from 'lucide-react';
+import { Mail } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 
@@ -94,10 +94,6 @@ const Hero: React.FC = () => {
               transition={{ duration: 0.6, delay: 0.35 }}
               className="flex flex-wrap gap-4 mb-6"
             >
-              <a href="tel:+919890451547" className="flex items-center gap-2 hero-text-secondary hover:text-gold transition-colors text-sm opacity-80">
-                <Phone className="w-3.5 h-3.5" />
-                <span>+91 98904 51547</span>
-              </a>
               <a href="mailto:arpita@idealizeer.in" className="flex items-center gap-2 hero-text-secondary hover:text-gold transition-colors text-sm opacity-80">
                 <Mail className="w-3.5 h-3.5" />
                 <span>arpita@idealizeer.in</span>

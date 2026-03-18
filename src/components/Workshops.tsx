@@ -1,46 +1,57 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Users, Lightbulb, BookOpen, Heart, Brain, Zap, MessageSquare, Shield,
-         Activity, Smile, Handshake, Mail, Target } from 'lucide-react';
+import {
+  Users,
+  Lightbulb,
+  BookOpen,
+  Heart,
+  Brain,
+  MessageSquare,
+  Shield,
+  Activity,
+  Handshake,
+  Mail,
+  Target,
+  Briefcase,
+  Building2,
+  GraduationCap,
+} from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
-const general = [
+const academicTraining = [
   { icon: Lightbulb, title: 'Design Thinking' },
+  { icon: GraduationCap, title: 'Student Workshops' },
+  { icon: MessageSquare, title: 'Seminars & Communication Sessions' },
   { icon: BookOpen, title: 'Resume Writing' },
   { icon: Users, title: 'Interview Techniques' },
   { icon: Activity, title: 'Body Language & Appearance' },
   { icon: Shield, title: 'Ethics & Professionalism' },
-  { icon: Target, title: 'Importance of NDA' },
-  { icon: MessageSquare, title: 'Communication Techniques' },
-  { icon: BookOpen, title: 'Imbibing Values' },
   { icon: Brain, title: 'Stress Management' },
   { icon: Handshake, title: 'Bonding Activities' },
-  { icon: Users, title: 'Culture Settings' },
-  { icon: Zap, title: 'AI Ethics in Academics' },
+  { icon: Brain, title: 'Critical Thinking' },
+  { icon: Heart, title: 'Emotional Intelligence' },
+  { icon: Target, title: 'Logical Application for Learning' },
 ];
 
-const specialized = [
+const corporateTraining = [
+  { icon: Lightbulb, title: 'Design Thinking' },
+  { icon: Building2, title: 'Industry Sessions' },
+  { icon: Briefcase, title: 'Professional Development Programs' },
   { icon: Heart, title: 'Soft Skills & Design Thinking' },
-  { icon: Users, title: 'Organizational Cultural Competence' },
   { icon: Shield, title: 'Work Ethics & Professionalism' },
   { icon: MessageSquare, title: 'Communication Techniques' },
   { icon: Brain, title: 'Stress Management' },
   { icon: Activity, title: 'Feedback Handling' },
   { icon: Mail, title: 'Email Ethics' },
   { icon: Handshake, title: 'Interpersonal Skills' },
-  { icon: Smile, title: 'Ethical Gossiping' },
-  { icon: Heart, title: 'Emotional Intelligence' },
   { icon: Users, title: 'Teamwork & Collaboration' },
-  { icon: Lightbulb, title: 'Design Thinking' },
-  { icon: Brain, title: 'Critical Thinking' },
-  { icon: Heart, title: 'Emotional Thinking' },
-  { icon: Target, title: 'Logical Thinking' },
+  { icon: Heart, title: 'Emotional Intelligence' },
 ];
 
 const Workshops: React.FC = () => {
   const { t } = useLanguage();
-  const [tab, setTab] = useState<'general' | 'specialized'>('general');
-  const items = tab === 'general' ? general : specialized;
+  const [tab, setTab] = useState<'academic' | 'corporate'>('academic');
+  const items = tab === 'academic' ? academicTraining : corporateTraining;
 
   return (
     <section id="workshops" className="section-padding bg-background">
@@ -57,9 +68,25 @@ const Workshops: React.FC = () => {
           <div className="w-20 h-1 gradient-gold mx-auto rounded-full mt-4" />
         </motion.div>
 
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="mb-8 rounded-[16px] border border-gold/30 bg-gold/10 p-4"
+        >
+          <div className="flex items-center gap-2">
+            <span className="rounded-full bg-gold px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-white">Priority</span>
+            <h3 className="text-sm font-bold text-foreground">Design Thinking</h3>
+          </div>
+          <p className="mt-2 text-xs text-muted-foreground">
+            Design Thinking is featured as the primary capability across both academic and corporate training tracks.
+          </p>
+        </motion.div>
+
         {/* Tabs */}
         <div className="flex justify-center gap-2 mb-8">
-          {(['general', 'specialized'] as const).map(tab_name => (
+          {(['academic', 'corporate'] as const).map(tab_name => (
             <button
               key={tab_name}
               onClick={() => setTab(tab_name)}
@@ -69,9 +96,16 @@ const Workshops: React.FC = () => {
                   : 'bg-muted text-muted-foreground hover:text-foreground'
               }`}
             >
-              {tab_name === 'general' ? t.workshops.general : t.workshops.specialized}
+              {tab_name === 'academic' ? 'Academic (Student-focused)' : 'Corporate Training'}
             </button>
           ))}
+        </div>
+
+        <div className="flex flex-wrap justify-center gap-2 text-xs mb-6">
+          <span className="rounded-full border border-border bg-card px-3 py-1 text-muted-foreground">Workshops</span>
+          <span className="rounded-full border border-border bg-card px-3 py-1 text-muted-foreground">Seminars</span>
+          <span className="rounded-full border border-border bg-card px-3 py-1 text-muted-foreground">Training Sessions</span>
+          <span className="rounded-full border border-border bg-card px-3 py-1 text-muted-foreground">Industry Programs</span>
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
@@ -81,16 +115,16 @@ const Workshops: React.FC = () => {
               initial={{ opacity: 0, scale: 0.85 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.3, delay: i * 0.04 }}
-              className={`bg-card border rounded-[16px] p-5 text-center card-3d shadow-card-premium flex flex-col items-center justify-center min-h-[110px] ${
-                i % 2 === 0 ? 'border-gold/20' : 'border-teal/20'
+              className={`bg-card border rounded-[16px] p-5 text-center card-3d shadow-card-premium flex flex-col items-center justify-center min-h-[118px] transition-transform hover:-translate-y-1 ${
+                i === 0 ? 'border-gold ring-1 ring-gold/30 bg-gold/5' : i % 2 === 0 ? 'border-gold/20' : 'border-teal/20'
               }`}
             >
               <div className={`w-10 h-10 rounded-[12px] mx-auto mb-3 flex items-center justify-center ${
-                i % 2 === 0 ? 'bg-gold/10' : 'bg-teal/10'
+                i === 0 ? 'bg-gold/20' : i % 2 === 0 ? 'bg-gold/10' : 'bg-teal/10'
               }`}>
-                <item.icon className={`w-5 h-5 ${i % 2 === 0 ? 'text-gold' : 'text-teal'}`} />
+                <item.icon className={`w-5 h-5 ${i === 0 || i % 2 === 0 ? 'text-gold' : 'text-teal'}`} />
               </div>
-              <h3 className="text-xs font-semibold text-foreground leading-tight">{item.title}</h3>
+              <h3 className={`text-xs font-semibold leading-tight ${i === 0 ? 'text-gold' : 'text-foreground'}`}>{item.title}</h3>
             </motion.div>
           ))}
         </div>
