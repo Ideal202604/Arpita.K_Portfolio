@@ -68,22 +68,6 @@ const Workshops: React.FC = () => {
           <div className="w-20 h-1 gradient-gold mx-auto rounded-full mt-4" />
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="mb-8 rounded-[16px] border border-gold/30 bg-gold/10 p-4"
-        >
-          <div className="flex items-center gap-2">
-            <span className="rounded-full bg-gold px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-white">Priority</span>
-            <h3 className="text-sm font-bold text-foreground">Design Thinking</h3>
-          </div>
-          <p className="mt-2 text-xs text-muted-foreground">
-            Design Thinking is featured as the primary capability across both academic and corporate training tracks.
-          </p>
-        </motion.div>
-
         {/* Tabs */}
         <div className="flex justify-center gap-2 mb-8">
           {(['academic', 'corporate'] as const).map(tab_name => (
@@ -99,13 +83,6 @@ const Workshops: React.FC = () => {
               {tab_name === 'academic' ? 'Academic (Student-focused)' : 'Corporate Training'}
             </button>
           ))}
-        </div>
-
-        <div className="flex flex-wrap justify-center gap-2 text-xs mb-6">
-          <span className="rounded-full border border-border bg-card px-3 py-1 text-muted-foreground">Workshops</span>
-          <span className="rounded-full border border-border bg-card px-3 py-1 text-muted-foreground">Seminars</span>
-          <span className="rounded-full border border-border bg-card px-3 py-1 text-muted-foreground">Training Sessions</span>
-          <span className="rounded-full border border-border bg-card px-3 py-1 text-muted-foreground">Industry Programs</span>
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">

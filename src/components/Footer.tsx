@@ -43,10 +43,10 @@ const Footer: React.FC = () => {
               </p>
               <button
                 onClick={() => setDevModalOpen(true)}
-                className="flex items-center gap-1 text-xs text-muted-foreground hover:text-gold transition-colors"
+                className="flex items-center gap-1 text-xs text-black hover:text-black/80 transition-colors"
               >
                 <Zap className="w-3 h-3 text-gold" />
-                {t.footer.builtBy} <span className="font-semibold text-gold ml-1">Wajid Daud Tamboli</span>
+                {t.footer.builtBy} <span className="font-bold text-green-600 ml-1">Wajid Daud Tamboli</span>
               </button>
             </div>
           </div>
