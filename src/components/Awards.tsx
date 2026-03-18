@@ -1,21 +1,20 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Trophy, Star, Award, Medal } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
-const awards = [
-  { icon: Trophy, title: 'London Book of World Record Award', detail: 'For Training and Social Contribution', tier: 'gold' },
-  { icon: Star, title: 'Best Research Paper Award', detail: '56th IATE Conference by YCMOU, Nashik – Feb 2024', tier: 'gold' },
-  { icon: Award, title: 'PMA Coordinator Selection', detail: 'Selected as PMA Coordinator for MES BBA & MBA College', tier: 'teal' },
-  { icon: Medal, title: 'STAR CONTRIBUTOR AWARD TZP', detail: 'Star Contributor Recognition', tier: 'gold' },
-  { icon: Trophy, title: 'Judge / Panelist – Idea Pitch', detail: 'Symbiosis, Pune – Innovation Panel', tier: 'teal' },
-  { icon: Star, title: 'Felicitation at Abhikalpana Sanman Sohala', detail: 'Mumbai – Special Recognition', tier: 'gold' },
-  { icon: Award, title: 'Felicitation as Guest Speaker', detail: 'MGM University, Ch. Sambhaji Nagar', tier: 'teal' },
-  { icon: Medal, title: 'Felicitation as Guest Speaker', detail: 'Shreeyas Engineering College, Ch. Sambhaji Nagar', tier: 'gold' },
-  { icon: Trophy, title: 'THE GURU 2021', detail: 'Excellence in Teaching & Mentorship', tier: 'teal' },
-  { icon: Star, title: 'BEST LEADER 2020', detail: 'Outstanding Leadership Recognition', tier: 'gold' },
-  { icon: Award, title: 'VYAPAR JAGAT AWARD', detail: 'Business & Social Excellence', tier: 'teal' },
-  { icon: Medal, title: 'And Many More...', detail: 'Continued recognition across institutions and conferences', tier: 'gold' },
+const awardImages = [
+  'London Book of World Record.png',
+  'London Book of World Record2.png',
+  'BEST Paper Award at YCMOU.png',
+  'BEST Paper Award at YCMOU2.png',
+  'BEST Paper Award at YCMOU3.png',
+  'VYAPAR JAGAT AWARD.png',
+  'VYAPAR JAGAT AWARD2.png',
+  'STAR CONTRIBUTOR AWARD TZP.png',
+  'THE GURU 2021.png',
+  'BEST LEADER 2020.png',
+  'Selected as a PMA Coordinator.png',
+  'Business ICON Award.png',
 ];
 
 const Awards: React.FC = () => {
@@ -36,27 +35,30 @@ const Awards: React.FC = () => {
           <div className="w-20 h-1 gradient-gold mx-auto rounded-full mt-4" />
         </motion.div>
 
-        <div className="grid [grid-template-columns:repeat(auto-fit,minmax(220px,1fr))] gap-6">
-          {awards.map((award, i) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+          {awardImages.map((fileName, i) => (
             <motion.div
-              key={i}
+              key={fileName}
               initial={{ opacity: 0, scale: 0.85 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, margin: '-20px' }}
               transition={{ duration: 0.5, delay: i * 0.05 }}
-              className={`bg-card border rounded-[16px] p-6 text-center award-card-hover shadow-card-premium cursor-default flex flex-col items-center min-h-[210px] justify-center ${
-                award.tier === 'gold' ? 'border-gold/30' : 'border-teal/30'
-              }`}
+              className="group rounded-[16px] border border-border bg-card p-3 shadow-card-premium transition-all hover:-translate-y-1 hover:shadow-xl"
             >
-              <div className={`w-10 h-10 rounded-full mx-auto mb-4 flex items-center justify-center ${
-                award.tier === 'gold' ? 'gradient-gold shadow-gold' : 'bg-teal shadow-glow'
-              }`}>
-                <award.icon className="w-5 h-5 text-white" />
+              <div className="relative overflow-hidden rounded-[12px] border border-border/70 bg-muted">
+                <img
+                  src={`/assets/awards/${fileName}`}
+                  alt={fileName}
+                  loading="lazy"
+                  className="h-52 w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+                <span className="absolute left-2 top-2 rounded-full border border-gold/30 bg-background/85 px-2 py-0.5 text-[10px] font-semibold text-gold">
+                  Award
+                </span>
               </div>
-              <h3 className="font-bold text-foreground text-sm leading-tight mb-2">
-                {award.title}
+              <h3 className="px-1 pt-3 text-sm font-semibold leading-snug text-foreground">
+                {fileName}
               </h3>
-              <p className="text-xs text-muted-foreground leading-relaxed">{award.detail}</p>
             </motion.div>
           ))}
         </div>

@@ -48,6 +48,29 @@ const corporateTraining = [
   { icon: Heart, title: 'Emotional Intelligence' },
 ];
 
+const workshopImages = {
+  academic: [
+    'WORKSHOPS ON RESUME WRITING AT SHREEYASH COLLEGE OF ENGINEERING, CH. SAMBHAJI NAGAR.png',
+    'WORKSHOPS ON RESUME WRITING AT SHREEYASH COLLEGE OF ENGINEERING, CH. SAMBHAJI NAGAR2.png',
+    'WORKSHOPS ON RESUME WRITING AT MGM UNIVERSITY, CH. SAMBHAJI NAGAR.png',
+    'SESSION ON EXAM STRESS MANAGEMENT AT MGM UNIVERSITY, CH. SAMBHAJI NAGAR.png',
+    'WORKSHOPS ON BLOG WRITING AT PIBm, PUNE.png',
+    'VOICE OVER FOR ACADEMIC CONTENT.png',
+  ],
+  corporate: [
+    'DESIGN THINKING COURSE @ SYMBIOSIS ROBOTICS AND AUTOMATION ENGINEERING DEPT.png',
+    'DESIGN THINKING COURSE @ SYMBIOSIS ROBOTICS AND AUTOMATION ENGINEERING DEPT2.png',
+    'DESIGN THINKING COURSE @ SYMBIOSIS E&TC ENGINEERING DEPT - SYMBIOSIS.png',
+    'DESIGN THINKING COURSE @ SYMBIOSIS E&TC ENGINEERING DEPT - SYMBIOSIS1.png',
+    'DESIGN THINKING COURSE @ SYMBIOSIS CIVIL ENGINEERING DEPT - SYMBIOSIS.png',
+    'DESIGN THINKING COURSE @ SYMBIOSIS CIVIL ENGINEERING DEPT - SYMBIOSIS2.png',
+    'DESIGN THINKING COURSE @ SYMBIOSIS ARTIFICIAL INTELLIGENCE & MACHINE LEARNING DEPT.png',
+    'DESIGN THINKING COURSE @ SYMBIOSIS ARTIFICIAL INTELLIGENCE & MACHINE LEARNING DEPT2.png',
+    'DESIGN THINKING COURSE @ SYMBIOSIS MECHANICAL ENGINEERING DEPT.png',
+    'DESIGN THINKING COURSE @ SYMBIOSIS MECHANICAL ENGINEERING DEPT2.png',
+  ],
+} as const;
+
 const Workshops: React.FC = () => {
   const { t } = useLanguage();
   const [tab, setTab] = useState<'academic' | 'corporate'>('academic');
@@ -104,6 +127,37 @@ const Workshops: React.FC = () => {
               <h3 className={`text-xs font-semibold leading-tight ${i === 0 ? 'text-gold' : 'text-foreground'}`}>{item.title}</h3>
             </motion.div>
           ))}
+        </div>
+
+        <div className="mt-10">
+          <h3 className="mb-4 text-lg font-bold text-foreground">
+            {tab === 'academic' ? 'Academic Workshops & Sessions' : 'Corporate Training Highlights'}
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+            {workshopImages[tab].map((fileName, i) => (
+              <motion.div
+                key={fileName}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-20px' }}
+                transition={{ duration: 0.35, delay: i * 0.04 }}
+                className="group rounded-[16px] border border-border bg-card p-3 shadow-card-premium transition-all hover:-translate-y-1 hover:shadow-xl"
+              >
+                <div className="relative overflow-hidden rounded-[12px] border border-border/70 bg-muted">
+                  <img
+                    src={`/assets/awards/${fileName}`}
+                    alt={fileName}
+                    loading="lazy"
+                    className="h-52 w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                  <span className="absolute left-2 top-2 rounded-full border border-teal/30 bg-background/85 px-2 py-0.5 text-[10px] font-semibold text-teal">
+                    {tab === 'academic' ? 'Workshop' : 'Training'}
+                  </span>
+                </div>
+                <h4 className="px-1 pt-3 text-sm font-semibold leading-snug text-foreground">{fileName}</h4>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

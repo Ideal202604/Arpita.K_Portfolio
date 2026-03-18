@@ -20,6 +20,14 @@ const conferences = [
   { year: '2000', title: 'Workshop on Unity in Diversity (Ford Foundation, USA)', type: 'Workshop', location: 'Nagpur' },
 ];
 
+const conferenceImages = [
+  'UNI 20-G20 CONFERENCE.png',
+  'UNI 20-G20 CONFERENCE WITH DELEGATES.png',
+  'UNI 20-G20 CONFERENCE WITH DELEGATES2.png',
+  'CONFERENCE ON NEP, ORGANIZED AT D Y PATIL, PIMPRI.png',
+  'JUDGE- PANELIST FOR IDEA PITCH - SYMBIOSIS PUNE.png',
+];
+
 const typeColors: Record<string, string> = {
   'Paper Presentation': 'bg-gold/10 text-gold border-gold/20',
   Award: 'bg-gold/20 text-gold border-gold/30',
@@ -84,6 +92,35 @@ const Conferences: React.FC = () => {
               </div>
             </motion.div>
           ))}
+        </div>
+
+        <div className="mt-10">
+          <h3 className="mb-4 text-lg font-bold text-foreground">Conference Highlights</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+            {conferenceImages.map((fileName, i) => (
+              <motion.div
+                key={fileName}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-20px' }}
+                transition={{ duration: 0.35, delay: i * 0.04 }}
+                className="group rounded-[16px] border border-border bg-card p-3 shadow-card-premium transition-all hover:-translate-y-1 hover:shadow-xl"
+              >
+                <div className="relative overflow-hidden rounded-[12px] border border-border/70 bg-muted">
+                  <img
+                    src={`/assets/awards/${fileName}`}
+                    alt={fileName}
+                    loading="lazy"
+                    className="h-52 w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                  <span className="absolute left-2 top-2 rounded-full border border-teal/30 bg-background/85 px-2 py-0.5 text-[10px] font-semibold text-teal">
+                    Conference
+                  </span>
+                </div>
+                <h4 className="px-1 pt-3 text-sm font-semibold leading-snug text-foreground">{fileName}</h4>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
