@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { BookOpen, FileText, Mic, Award } from 'lucide-react';
+import { BookOpen, FileText, Mic, Award, Sparkles } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const researchBuckets = [
@@ -9,6 +9,8 @@ const researchBuckets = [
     icon: BookOpen,
     border: 'border-gold/30',
     iconColor: 'text-gold',
+    tagBg: 'bg-gold/15 border-gold/30 text-gold',
+    glow: 'from-gold/25 to-transparent',
     items: [
       {
         title: 'Emerging Trends in Management and Social Sciences',
@@ -27,6 +29,8 @@ const researchBuckets = [
     icon: FileText,
     border: 'border-teal/30',
     iconColor: 'text-teal',
+    tagBg: 'bg-teal/15 border-teal/30 text-teal',
+    glow: 'from-teal/25 to-transparent',
     items: [
       {
         title: 'Development of Phonetic Based Packaged Programme and Its Effectiveness on Academic Achievement of Students with Dyslexia',
@@ -40,6 +44,8 @@ const researchBuckets = [
     icon: FileText,
     border: 'border-gold/30',
     iconColor: 'text-gold',
+    tagBg: 'bg-gold/15 border-gold/30 text-gold',
+    glow: 'from-gold/25 to-transparent',
     items: [
       {
         title: 'Impact of Design Thinking On Teaching and Learning',
@@ -53,6 +59,8 @@ const researchBuckets = [
     icon: Mic,
     border: 'border-teal/30',
     iconColor: 'text-teal',
+    tagBg: 'bg-teal/15 border-teal/30 text-teal',
+    glow: 'from-teal/25 to-transparent',
     items: [
       {
         title: 'Transforming Teaching by Integrating Design Thinking with Experiential Learning',
@@ -71,6 +79,8 @@ const researchBuckets = [
     icon: Award,
     border: 'border-gold/30',
     iconColor: 'text-gold',
+    tagBg: 'bg-gold/15 border-gold/30 text-gold',
+    glow: 'from-gold/25 to-transparent',
     items: [
       {
         title: 'Best Research Paper at 56th Annual National Conference of IATE',
@@ -104,6 +114,24 @@ const Research: React.FC = () => {
           <div className="w-20 h-1 gradient-gold mx-auto rounded-full mt-4" />
         </motion.div>
 
+        <motion.div
+          initial={{ opacity: 0, y: 22 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="mb-8 rounded-[16px] border border-border/70 bg-card/70 p-4 shadow-card-premium"
+        >
+          <div className="flex flex-wrap items-center gap-3">
+            <div className="inline-flex items-center gap-2 rounded-full border border-gold/30 bg-gold/10 px-3 py-1">
+              <Sparkles className="h-3.5 w-3.5 text-gold" />
+              <span className="text-xs font-semibold text-gold">Research Highlights</span>
+            </div>
+            <p className="text-sm text-muted-foreground">
+              Structured portfolio across books, thesis, chapters, conference papers, and recognitions.
+            </p>
+          </div>
+        </motion.div>
+
         <div className="grid lg:grid-cols-2 gap-6">
           {researchBuckets.map((bucket, i) => (
             <motion.div
@@ -112,22 +140,31 @@ const Research: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-30px' }}
               transition={{ duration: 0.5, delay: i * 0.06 }}
-              className={`bg-card border ${bucket.border} rounded-[16px] p-6 card-3d shadow-card-premium hover:-translate-y-1 hover:shadow-xl transition-all`}
+              className={`relative overflow-hidden bg-card border ${bucket.border} rounded-[16px] p-6 card-3d shadow-card-premium hover:-translate-y-1 hover:shadow-xl transition-all`}
             >
-              <div className="mb-4 h-1 w-14 rounded-full bg-gradient-to-r from-gold/70 to-teal/60" />
-              <div className="flex items-center gap-3 mb-3">
-                <div className="w-10 h-10 rounded-[12px] bg-background/80 flex items-center justify-center flex-shrink-0">
+              <div className={`pointer-events-none absolute -top-14 -right-10 h-36 w-36 rounded-full bg-gradient-to-br ${bucket.glow} blur-2xl`} />
+              <div className="mb-4 flex items-center justify-between gap-3">
+                <div className="flex items-center gap-3">
+                  <div className="w-11 h-11 rounded-[12px] bg-background/90 border border-border/70 flex items-center justify-center flex-shrink-0">
                   <bucket.icon className={`w-5 h-5 ${bucket.iconColor}`} />
+                  </div>
+                  <span className={`text-sm font-bold tracking-wide ${bucket.iconColor}`}>{bucket.title}</span>
                 </div>
-                <span className={`text-xs font-bold uppercase tracking-wider ${bucket.iconColor}`}>{bucket.title}</span>
+                <span className={`rounded-full border px-2.5 py-1 text-[11px] font-semibold ${bucket.tagBg}`}>
+                  {bucket.items.length} {bucket.items.length > 1 ? 'items' : 'item'}
+                </span>
               </div>
+
+              <div className="mb-4 h-1 w-16 rounded-full bg-gradient-to-r from-gold/70 to-teal/60" />
 
               <div className="space-y-3">
                 {bucket.items.map((item, idx) => (
-                  <div key={idx} className="rounded-[12px] border border-border/70 bg-background/70 p-3 hover:border-gold/30 transition-colors">
+                  <div key={idx} className="rounded-[12px] border border-border/70 bg-background/70 p-4 hover:border-gold/30 transition-colors">
                     <h3 className="text-sm font-semibold text-foreground leading-snug">{item.title}</h3>
-                    <p className="mt-1 text-xs text-muted-foreground leading-relaxed">{item.description}</p>
-                    <p className="mt-2 text-[11px] font-medium text-gold">{item.institution}</p>
+                    <p className="mt-2 text-xs text-muted-foreground leading-relaxed">{item.description}</p>
+                    <div className="mt-3 inline-flex items-center rounded-full border border-gold/25 bg-gold/10 px-2.5 py-1">
+                      <span className="text-[11px] font-medium text-gold">{item.institution}</span>
+                    </div>
                   </div>
                 ))}
               </div>

@@ -124,7 +124,7 @@ const Workshops: React.FC = () => {
               }`}>
                 <item.icon className={`w-5 h-5 ${i === 0 || i % 2 === 0 ? 'text-gold' : 'text-teal'}`} />
               </div>
-              <h3 className={`text-xs font-semibold leading-tight ${i === 0 ? 'text-gold' : 'text-foreground'}`}>{item.title}</h3>
+              <h3 className={`text-xs leading-tight ${i === 0 ? 'font-medium text-gold' : 'font-semibold text-foreground'}`}>{item.title}</h3>
             </motion.div>
           ))}
         </div>

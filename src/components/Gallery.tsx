@@ -32,7 +32,6 @@ const Gallery: React.FC = () => {
     { src: Arpita3, alt: 'Gallery image 3' },
     { src: Arpita4, alt: 'Gallery image 4' },
     { src: '/assets/awards/Felicitation on a special occasion from my Ph.D. Guide, Dr. G. L. Gulhane.png', alt: 'Felicitation on a special occasion from my Ph.D. Guide, Dr. G. L. Gulhane.png' },
-    { src: '/assets/awards/FELICITATION AS A GUEST SPEAKER AT MGM UNIVERSITY.png', alt: 'FELICITATION AS A GUEST SPEAKER AT MGM UNIVERSITY.png' },
     { src: '/assets/awards/SHREEYASH COLLEGE OF ENGINEERING, CH. SAMBHAJI NAGAR.png', alt: 'SHREEYASH COLLEGE OF ENGINEERING, CH. SAMBHAJI NAGAR.png' },
   ];
 

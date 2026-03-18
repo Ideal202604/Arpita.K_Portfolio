@@ -13,19 +13,11 @@ const COVER_FRAME_IMAGES = new Set([
   'London Book of World Record.png',
 ]);
 
-const FULL_RECTANGLE_IMAGES = new Set([
-  'FELICITATION AS A GUEST SPEAKER AT MGM UNIVERSITY.png',
-]);
-
 export function isStraightFrameImage(fileName: string): boolean {
   return STRAIGHT_FRAME_IMAGES.has(fileName);
 }
 
 export function getAwardImageClass(fileName: string): string {
-  if (FULL_RECTANGLE_IMAGES.has(fileName)) {
-    return 'block w-full h-full object-cover object-center';
-  }
-
   if (COVER_FRAME_IMAGES.has(fileName)) {
     return 'block w-full h-56 object-cover object-center';
   }
