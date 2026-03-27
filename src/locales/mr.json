@@ -3,6 +3,7 @@
     "home": "मुख्यपृष्ठ",
     "about": "माझ्याबद्दल",
     "academic": "शैक्षणिक प्रोफाइल",
+    "certifications": "प्रमाणपत्रे",
     "experience": "अनुभव",
     "skills": "कौशल्ये",
     "workshops": "कार्यशाळा व प्रशिक्षण",
@@ -41,6 +42,10 @@
   "academic": {
     "heading": "शैक्षणिक प्रोफाइल",
     "subheading": "शैक्षणिक प्रवास व प्रमाणपत्रे"
+  },
+  "certifications": {
+    "heading": "प्रमाणपत्रे",
+    "subheading": "व्यावसायिक प्रमाणपत्रे आणि विशेष पात्रता"
   },
   "gallery": {
     "heading": "गॅलरी",

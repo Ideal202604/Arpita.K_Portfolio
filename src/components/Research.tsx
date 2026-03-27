@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { BookOpen, FileText, Mic, Award, Sparkles } from 'lucide-react';
+import { BookOpen, FileText, Mic, Award } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const researchBuckets = [
@@ -112,24 +112,6 @@ const Research: React.FC = () => {
           <h2 className="section-heading mb-2">{t.research.heading}</h2>
           <p className="text-muted-foreground">{t.research.subheading}</p>
           <div className="w-20 h-1 gradient-gold mx-auto rounded-full mt-4" />
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 22 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="mb-8 rounded-[16px] border border-border/70 bg-card/70 p-4 shadow-card-premium"
-        >
-          <div className="flex flex-wrap items-center gap-3">
-            <div className="inline-flex items-center gap-2 rounded-full border border-gold/30 bg-gold/10 px-3 py-1">
-              <Sparkles className="h-3.5 w-3.5 text-gold" />
-              <span className="text-xs font-semibold text-gold">Research Highlights</span>
-            </div>
-            <p className="text-sm text-muted-foreground">
-              Structured portfolio across books, thesis, chapters, conference papers, and recognitions.
-            </p>
-          </div>
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-6">

@@ -9,18 +9,11 @@ const STRAIGHT_FRAME_IMAGES = new Set([
   'THE GURU 2021.png',
 ]);
 
-const COVER_FRAME_IMAGES = new Set([
-  'London Book of World Record.png',
-]);
-
 export function isStraightFrameImage(fileName: string): boolean {
   return STRAIGHT_FRAME_IMAGES.has(fileName);
 }
 
 export function getAwardImageClass(fileName: string): string {
-  if (COVER_FRAME_IMAGES.has(fileName)) {
-    return 'block w-full h-56 object-cover object-center';
-  }
-
-  return 'block w-full h-auto object-contain';
+  void fileName;
+  return 'block w-full h-full object-contain';
 }

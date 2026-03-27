@@ -9,6 +9,7 @@ const navLinks = [
   { key: 'home', href: '#home' },
   { key: 'about', href: '#about' },
   { key: 'academic', href: '#academic' },
+  { key: 'certifications', href: '#certifications' },
   { key: 'workshops', href: '#workshops' },
   { key: 'corporate', href: '#corporate' },
   { key: 'research', href: '#research' },
@@ -68,7 +69,7 @@ const Navbar: React.FC = () => {
           </a>
 
           {/* Desktop Nav Links */}
-          <div className="hidden xl:grid grid-cols-8 gap-1.5 w-full max-w-5xl mx-auto px-3 py-1.5 rounded-full bg-card/65 border border-border/70 backdrop-blur-xl">
+          <div className="hidden xl:grid grid-cols-9 gap-1.5 w-full max-w-5xl mx-auto px-3 py-1.5 rounded-full bg-card/65 border border-border/70 backdrop-blur-xl">
             {navLinks.map(link => (
               <a
                 key={link.key}

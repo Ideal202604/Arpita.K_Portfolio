@@ -97,7 +97,7 @@ const Conferences: React.FC = () => {
 
         <div className="mt-10">
           <h3 className="mb-4 text-lg font-bold text-foreground">Conference Highlights</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 items-start">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 items-stretch">
             {conferenceImages.map((fileName, i) => (
               <motion.div
                 key={fileName}
@@ -105,9 +105,9 @@ const Conferences: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-20px' }}
                 transition={{ duration: 0.35, delay: i * 0.04 }}
-                className="group self-start rounded-[16px] border border-border bg-card p-3 shadow-card-premium transition-all hover:-translate-y-1 hover:shadow-xl"
+                className="group h-full rounded-[16px] border border-border bg-card p-3 shadow-card-premium transition-all hover:-translate-y-1 hover:shadow-xl flex flex-col"
               >
-                <div className="relative overflow-hidden rounded-[12px] border border-border/70">
+                <div className="relative aspect-square overflow-hidden rounded-[12px] border border-border/70 bg-muted/20 p-2">
                   <img
                     src={`/assets/awards/${fileName}`}
                     alt={fileName}
@@ -118,7 +118,7 @@ const Conferences: React.FC = () => {
                     Conference
                   </span>
                 </div>
-                <h4 className="px-1 pt-3 text-sm font-semibold leading-snug text-foreground">{formatTitle(fileName)}</h4>
+                <h4 className="px-1 pt-3 text-sm font-semibold leading-snug text-foreground min-h-[3.25rem]">{formatTitle(fileName)}</h4>
               </motion.div>
             ))}
           </div>

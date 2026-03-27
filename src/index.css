@@ -211,6 +211,21 @@
     @apply max-w-[1240px] mx-auto;
   }
 
+  .motion-stage {
+    perspective: 1200px;
+    transform-style: preserve-3d;
+  }
+
+  .motion-blob-gold,
+  .motion-blob-teal,
+  .card-3d,
+  .award-card-hover,
+  .skill-card-hover,
+  .cert-flash-card,
+  .section-heading {
+    will-change: transform, opacity;
+  }
+
   main > section:not(#home) {
     position: relative;
   }
@@ -251,6 +266,26 @@
   .skill-card-hover:hover {
     box-shadow: 0 0 20px hsl(var(--teal) / 0.25);
     transform: translateY(-3px) scale(1.03);
+  }
+
+  .cert-flash-card {
+    box-shadow: 0 8px 24px hsl(222 47% 11% / 0.12);
+    transform-style: preserve-3d;
+    transition: border-color 0.3s ease;
+  }
+
+  .cert-flash-card:hover {
+    border-color: hsl(var(--gold) / 0.45);
+  }
+
+  .cert-flash {
+    background: linear-gradient(115deg, transparent 8%, hsl(43 96% 56% / 0.28) 42%, transparent 72%);
+    transform: translateX(-130%);
+    animation: cert-sweep 3.2s ease-in-out infinite;
+  }
+
+  .cert-flash-card:hover .cert-flash {
+    opacity: 1;
   }
 
   .section-heading {
@@ -323,6 +358,10 @@
 @keyframes pulse-gold {
   0%, 100% { box-shadow: 0 0 0 0 hsl(43 96% 56% / 0.4); }
   50% { box-shadow: 0 0 0 12px hsl(43 96% 56% / 0); }
+}
+@keyframes cert-sweep {
+  0%, 25% { transform: translateX(-130%); }
+  70%, 100% { transform: translateX(130%); }
 }
 
 .animate-float { animation: float 3s ease-in-out infinite; }

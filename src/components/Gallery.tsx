@@ -122,13 +122,13 @@ const Gallery: React.FC = () => {
             if (!open) setPreview(null);
           }}
         >
-          <DialogContent className="max-w-[min(92vw,1100px)] p-0 overflow-hidden bg-card border-border">
-            <div className="relative w-full max-h-[80vh] p-4 sm:p-6 bg-muted/30 flex items-center justify-center">
+          <DialogContent className="!w-auto !max-w-[92vw] p-0 overflow-hidden bg-card border-border">
+            <div className="relative inline-flex max-w-[92vw] max-h-[82vh] p-3 sm:p-4 bg-muted/30 items-center justify-center">
               {preview ? (
                 <img
                   src={preview.src}
                   alt={preview.alt}
-                  className="max-w-full max-h-[72vh] object-contain"
+                  className="block w-auto h-auto max-w-[86vw] max-h-[74vh] object-contain"
                 />
               ) : (
                 <div className="h-[40vh]" />

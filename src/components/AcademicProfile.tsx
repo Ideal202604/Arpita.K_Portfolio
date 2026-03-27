@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { GraduationCap, Award, BookOpen, Shield, Scissors } from 'lucide-react';
+import { GraduationCap, Award, BookOpen } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const timeline = [
@@ -8,11 +8,7 @@ const timeline = [
   { year: '2013', degree: 'SET (Education)', institution: 'State Eligibility Test', icon: Award, color: 'from-teal to-cyan-400', highlight: false },
   { year: '2012', degree: 'M.Ed.', institution: 'S.G.B. Amravati University', icon: GraduationCap, color: 'from-gold to-yellow-400', highlight: false },
   { year: '2009', degree: 'B.Ed.', institution: 'S.G.B. Amravati University', icon: GraduationCap, color: 'from-teal to-cyan-400', highlight: false },
-  { year: '2001', degree: 'MA (English Literature)', institution: 'Nagpur University', icon: BookOpen, color: 'from-gold to-yellow-400', highlight: false },
-  { year: '', degree: 'Certified Technical Writer', institution: 'Professional Certification', icon: BookOpen, color: 'from-teal to-cyan-400', highlight: false },
-  { year: '', degree: 'Fashion Designing Certification', institution: 'Professional Certification', icon: Scissors, color: 'from-gold to-yellow-400', highlight: false },
-  { year: '', degree: 'POSH Certified', institution: 'Prevention of Sexual Harassment', icon: Shield, color: 'from-teal to-cyan-400', highlight: false },
-  { year: '', degree: 'Guidance & Counselling Certified', institution: 'Professional Certification', icon: Award, color: 'from-gold to-yellow-400', highlight: false },
+  { year: '2001', degree: 'PG (English Literature)', institution: 'Nagpur University', icon: BookOpen, color: 'from-gold to-yellow-400', highlight: false },
 ];
 
 const AcademicProfile: React.FC = () => {

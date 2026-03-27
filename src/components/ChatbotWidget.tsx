@@ -18,7 +18,7 @@ const ChatbotWidget: React.FC = () => {
 
   return (
     <div
-      className="elfsight-app-8fdfb546-70ef-4be1-8142-05a8bc16f51b"
+      className="elfsight-app-8fdfb546-70ef-4be1-8142-05a8bc16f51b fixed bottom-4 right-4 z-[70]"
       data-elfsight-app-lazy
     />
   );

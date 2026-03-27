@@ -3,6 +3,7 @@
     "home": "Home",
     "about": "About",
     "academic": "Academic Profile",
+    "certifications": "Certifications",
     "workshops": "Workshops & Training",
     "corporate": "Corporate Profile",
     "research": "Research & Publications",
@@ -39,6 +40,10 @@
   "academic": {
     "heading": "Academic Profile",
     "subheading": "Educational Journey & Certifications"
+  },
+  "certifications": {
+    "heading": "Certifications",
+    "subheading": "Professional certifications and special credentials"
   },
   "gallery": {
     "heading": "Gallery",

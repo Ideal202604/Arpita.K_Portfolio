@@ -17,7 +17,6 @@ import {
   GraduationCap,
 } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { getAwardImageClass, isStraightFrameImage } from '@/lib/awardImageDisplay';
 import { formatTitle } from '@/lib/formatTitle';
 
 const academicTraining = [
@@ -36,7 +35,6 @@ const academicTraining = [
 ];
 
 const corporateTraining = [
-  { icon: Lightbulb, title: 'Design Thinking' },
   { icon: Building2, title: 'Industry Sessions' },
   { icon: Briefcase, title: 'Professional Development Programs' },
   { icon: Heart, title: 'Soft Skills & Design Thinking' },
@@ -52,10 +50,15 @@ const corporateTraining = [
 
 const workshopImages = {
   academic: [
+    'https://media.licdn.com/dms/image/v2/D4D22AQHn2ca3aAmj4Q/feedshare-shrink_800/B4DZ0ZQCXmKQAc-/0/1774245127904?e=1776297600&v=beta&t=cYd2h2D9vtU4DhvoBAuR1IjgmsDJNJKDTaN8ObeGdmk',
     'WORKSHOPS ON RESUME WRITING AT SHREEYASH COLLEGE OF ENGINEERING, CH. SAMBHAJI NAGAR.png',
     'WORKSHOPS ON RESUME WRITING AT SHREEYASH COLLEGE OF ENGINEERING, CH. SAMBHAJI NAGAR2.png',
     'WORKSHOPS ON RESUME WRITING AT MGM UNIVERSITY, CH. SAMBHAJI NAGAR.png',
     'SESSION ON EXAM STRESS MANAGEMENT AT MGM UNIVERSITY, CH. SAMBHAJI NAGAR.png',
+    'https://media.licdn.com/dms/image/v2/D4D22AQEFJ6-mTWZQbg/feedshare-shrink_800/feedshare-shrink_800/0/1683353822195?e=1776297600&v=beta&t=aQxt14Inb8J2qD2jvRVFlD6xj3laDG9ElQnT97tYP3w',
+    'https://media.licdn.com/dms/image/v2/D4D22AQHgxGb7u2p5Kg/feedshare-shrink_1280/feedshare-shrink_1280/0/1697892902335?e=1776297600&v=beta&t=PPnW3ggt_9F5oAUf-spbBh17G72U-zuYYqDY7ZvO7UM',
+    'https://media.licdn.com/dms/image/v2/D4D22AQE8lbTd_1zCpg/feedshare-shrink_800/feedshare-shrink_800/0/1702739242972?e=1776297600&v=beta&t=Mf-ufm3CTOvHyiLmoe395PECof3C_YuiWJ4ngrIVNeE',
+    'https://media.licdn.com/dms/image/v2/D4D22AQHgKZ-ZEpv_1w/feedshare-shrink_800/feedshare-shrink_800/0/1701770410031?e=1776297600&v=beta&t=FkakCPfueNlKdWpBHmwRcalVWkSM3ahfzXIeLXWB9JY',
   ],
   corporate: [
     'DESIGN THINKING COURSE @ SYMBIOSIS ROBOTICS AND AUTOMATION ENGINEERING DEPT.png',
@@ -70,6 +73,18 @@ const workshopImages = {
     'DESIGN THINKING COURSE @ SYMBIOSIS MECHANICAL ENGINEERING DEPT2.png',
   ],
 } as const;
+
+const customWorkshopTitles: Record<string, string> = {
+  'https://media.licdn.com/dms/image/v2/D4D22AQHn2ca3aAmj4Q/feedshare-shrink_800/B4DZ0ZQCXmKQAc-/0/1774245127904?e=1776297600&v=beta&t=cYd2h2D9vtU4DhvoBAuR1IjgmsDJNJKDTaN8ObeGdmk': 'Two Mental Health sessions in one day for Ex-Bankers & Undergrads PVPIT, Bavdhan 6122 Pune',
+  'https://media.licdn.com/dms/image/v2/D4D22AQEFJ6-mTWZQbg/feedshare-shrink_800/feedshare-shrink_800/0/1683353822195?e=1776297600&v=beta&t=aQxt14Inb8J2qD2jvRVFlD6xj3laDG9ElQnT97tYP3w': "Teacher’s Training",
+  'https://media.licdn.com/dms/image/v2/D4D22AQHgxGb7u2p5Kg/feedshare-shrink_1280/feedshare-shrink_1280/0/1697892902335?e=1776297600&v=beta&t=PPnW3ggt_9F5oAUf-spbBh17G72U-zuYYqDY7ZvO7UM': 'Idea Pitch Competition.',
+  'https://media.licdn.com/dms/image/v2/D4D22AQE8lbTd_1zCpg/feedshare-shrink_800/feedshare-shrink_800/0/1702739242972?e=1776297600&v=beta&t=Mf-ufm3CTOvHyiLmoe395PECof3C_YuiWJ4ngrIVNeE': 'Email-Ethics Workshop',
+  'https://media.licdn.com/dms/image/v2/D4D22AQHgKZ-ZEpv_1w/feedshare-shrink_800/feedshare-shrink_800/0/1701770410031?e=1776297600&v=beta&t=FkakCPfueNlKdWpBHmwRcalVWkSM3ahfzXIeLXWB9JY': 'TKick exam stress ',
+};
+
+const squareWorkshopFrameImages = new Set([
+  'WORKSHOPS ON RESUME WRITING AT SHREEYASH COLLEGE OF ENGINEERING, CH. SAMBHAJI NAGAR.png',
+]);
 
 const Workshops: React.FC = () => {
   const { t } = useLanguage();
@@ -116,15 +131,15 @@ const Workshops: React.FC = () => {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.3, delay: i * 0.04 }}
               className={`bg-card border rounded-[16px] p-5 text-center card-3d shadow-card-premium flex flex-col items-center justify-center min-h-[118px] transition-transform hover:-translate-y-1 ${
-                i === 0 ? 'border-gold ring-1 ring-gold/30 bg-gold/5' : i % 2 === 0 ? 'border-gold/20' : 'border-teal/20'
+                i % 2 === 0 ? 'border-gold/20' : 'border-teal/20'
               }`}
             >
               <div className={`w-10 h-10 rounded-[12px] mx-auto mb-3 flex items-center justify-center ${
-                i === 0 ? 'bg-gold/20' : i % 2 === 0 ? 'bg-gold/10' : 'bg-teal/10'
+                i % 2 === 0 ? 'bg-gold/10' : 'bg-teal/10'
               }`}>
-                <item.icon className={`w-5 h-5 ${i === 0 || i % 2 === 0 ? 'text-gold' : 'text-teal'}`} />
+                <item.icon className={`w-5 h-5 ${i % 2 === 0 ? 'text-gold' : 'text-teal'}`} />
               </div>
-              <h3 className={`text-xs leading-tight ${i === 0 ? 'font-medium text-gold' : 'font-semibold text-foreground'}`}>{item.title}</h3>
+              <h3 className="text-xs leading-tight font-semibold text-foreground">{item.title}</h3>
             </motion.div>
           ))}
         </div>
@@ -134,29 +149,39 @@ const Workshops: React.FC = () => {
             {tab === 'academic' ? 'Academic Workshops & Sessions' : 'Corporate Training Highlights'}
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 items-start">
-            {workshopImages[tab].map((fileName, i) => (
-              <motion.div
-                key={fileName}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-20px' }}
-                transition={{ duration: 0.35, delay: i * 0.04 }}
-                className="group self-start rounded-[16px] border border-border bg-card p-3 shadow-card-premium transition-all hover:-translate-y-1 hover:shadow-xl"
-              >
-                <div className="relative overflow-hidden rounded-[12px] border border-border/70">
-                  <img
-                    src={`/assets/awards/${fileName}`}
-                    alt={fileName}
-                    loading="lazy"
-                    className={`${getAwardImageClass(fileName)} ${isStraightFrameImage(fileName) ? '' : 'transition-transform duration-300 group-hover:scale-105'}`}
-                  />
-                  <span className="absolute left-2 top-2 rounded-full border border-teal/30 bg-background/85 px-2 py-0.5 text-[10px] font-semibold text-teal">
-                    {tab === 'academic' ? 'Workshop' : 'Training'}
-                  </span>
-                </div>
-                <h4 className="px-1 pt-3 text-sm font-semibold leading-snug text-foreground">{formatTitle(fileName)}</h4>
-              </motion.div>
-            ))}
+            {workshopImages[tab].map((fileName, i) => {
+              const isExternalImage = fileName.startsWith('http');
+              const forceSquareFrame = squareWorkshopFrameImages.has(fileName);
+              const imageSrc = isExternalImage ? fileName : `/assets/awards/${fileName}`;
+              const imageTitle = customWorkshopTitles[fileName] ?? formatTitle(fileName);
+
+              return (
+                <motion.div
+                  key={fileName}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: '-20px' }}
+                  transition={{ duration: 0.35, delay: i * 0.04 }}
+                  className="group self-start rounded-[16px] border border-border bg-card p-3 shadow-card-premium transition-all hover:-translate-y-1 hover:shadow-xl"
+                >
+                  <div className="relative aspect-square overflow-hidden rounded-[12px] border border-border/70">
+                    <img
+                      src={imageSrc}
+                      alt={imageTitle}
+                      loading="lazy"
+                      referrerPolicy={isExternalImage ? 'no-referrer' : undefined}
+                      className={forceSquareFrame
+                        ? 'block w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-105'
+                        : 'block w-full h-full object-cover object-center transition-transform duration-300 group-hover:scale-105'}
+                    />
+                    <span className="absolute left-2 top-2 rounded-full border border-teal/30 bg-background/85 px-2 py-0.5 text-[10px] font-semibold text-teal">
+                      {tab === 'academic' ? 'Workshop' : 'Training'}
+                    </span>
+                  </div>
+                  <h4 className="px-1 pt-3 text-sm font-semibold leading-snug text-foreground">{imageTitle}</h4>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </div>

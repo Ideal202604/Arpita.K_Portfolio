@@ -3,6 +3,7 @@
     "home": "होम",
     "about": "परिचय",
     "academic": "शैक्षणिक प्रोफाइल",
+    "certifications": "प्रमाणपत्र",
     "experience": "अनुभव",
     "skills": "कौशल",
     "workshops": "वर्कशॉप एवं प्रशिक्षण",
@@ -41,6 +42,10 @@
   "academic": {
     "heading": "शैक्षणिक प्रोफाइल",
     "subheading": "शैक्षणिक यात्रा एवं प्रमाणपत्र"
+  },
+  "certifications": {
+    "heading": "प्रमाणपत्र",
+    "subheading": "व्यावसायिक प्रमाणपत्र और विशेष योग्यता"
   },
   "gallery": {
     "heading": "गैलरी",
