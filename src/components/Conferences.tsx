@@ -1,128 +1,293 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Calendar, MapPin } from 'lucide-react';
-import { useLanguage } from '@/contexts/LanguageContext';
-import { getAwardImageClass, isStraightFrameImage } from '@/lib/awardImageDisplay';
-import { formatTitle } from '@/lib/formatTitle';
+import React, { useEffect, useState } from 'react';
+import './Conferences.css';
 
-const conferences = [
-  { year: '2024', title: 'Design Thinking Paper - MJTC, Kerala (March 2)', type: 'Paper Presentation', location: 'Kerala' },
-  { year: '2024', title: 'ICIA 2024 – Paper: Integrating Design Thinking with Experiential Learning', type: 'Paper Presentation', location: 'Islamic University of Maldives' },
-  { year: '2024', title: 'Best Research Paper – 56th IATE Conference on Indian Knowledge System', type: 'Award', location: 'YCMOU, Nashik' },
-  { year: '2024', title: 'Paper at SDG4-Quality Education Conference – Jan 10-11', type: 'Paper Presentation', location: '' },
-  { year: '2024', title: 'Expert Session at Army Law College Symposium – Pathways to Success (May 5)', type: 'Expert Session', location: '' },
-  { year: '2023', title: 'International Conference: Future of Universities – Symbiosis (June 19-21)', type: 'Attended', location: 'Pune' },
-  { year: '2023', title: 'FDPs at Symbiosis Institute of Technology (Mech Dept) & YCMOU', type: 'FDP', location: '' },
-  { year: '2020', title: "4th National Teachers' Congress (Dec 15-18)", type: 'Attended', location: '' },
-  { year: '2019', title: 'National Conference – Impact of NEP 2019 on Current Education System (Dec 16-17)', type: 'Attended', location: '' },
-  { year: '2012', title: 'One Day Workshop on Gender and Education', type: 'Workshop', location: 'Amravati' },
-  { year: '2009', title: 'State Level Seminar – Indian Writing in English in Post-Modern Era', type: 'Seminar', location: 'Telhara' },
-  { year: '2003', title: 'Fourth Annual Conference of NUETO', type: 'Conference', location: 'Nagpur' },
-  { year: '2003', title: 'State Level Seminar – Evaluation Techniques & Studies in Literature', type: 'Seminar', location: 'Nagpur' },
-  { year: '2000', title: 'Workshop on Unity in Diversity (Ford Foundation, USA)', type: 'Workshop', location: 'Nagpur' },
-];
-
-const conferenceImages = [
-  'UNI 20-G20 CONFERENCE.png',
-  'UNI 20-G20 CONFERENCE WITH DELEGATES.png',
-  'UNI 20-G20 CONFERENCE WITH DELEGATES2.png',
-  'CONFERENCE ON NEP, ORGANIZED AT D Y PATIL, PIMPRI.png',
-];
-
-const typeColors: Record<string, string> = {
-  'Paper Presentation': 'bg-gold/10 text-gold border-gold/20',
-  Award: 'bg-gold/20 text-gold border-gold/30',
-  'Expert Session': 'bg-teal/10 text-teal border-teal/20',
-  Attended: 'bg-muted text-muted-foreground border-border',
-  FDP: 'bg-muted text-muted-foreground border-border',
-  Workshop: 'bg-teal/10 text-teal border-teal/20',
-  Seminar: 'bg-gold/10 text-gold border-gold/20',
-  Conference: 'bg-muted text-muted-foreground border-border',
+type NavItem = {
+  id: string;
+  label: string;
+  hasSubmenu?: boolean;
+  submenu?: string[];
 };
 
+type Community = {
+  name: string;
+  type: 'Learnyst' | 'Telegram';
+};
+
+const navItems: NavItem[] = [
+  { id: 'getstarted', label: 'Get Started' },
+  { id: 'dashboard', label: 'Dashboard' },
+  { id: 'products', label: 'Products' },
+  { id: 'websiteApps', label: 'Website & Apps', hasSubmenu: true, submenu: ['Pages', 'Themes'] },
+  { id: 'community', label: 'Community', hasSubmenu: true, submenu: ['Learnyst Communities', 'Telegram'] },
+  { id: 'marketing', label: 'Marketing', hasSubmenu: true },
+  { id: 'sales', label: 'Sales', hasSubmenu: true },
+  { id: 'users', label: 'Users', hasSubmenu: true },
+  { id: 'reports', label: 'Reports', hasSubmenu: true },
+  { id: 'manage', label: 'Manage', hasSubmenu: true },
+  { id: 'addons', label: 'Add - Ons', hasSubmenu: true },
+  { id: 'security', label: 'Security', hasSubmenu: true },
+  { id: 'subschools', label: 'Sub Schools', hasSubmenu: true },
+  { id: 'settings', label: 'Settings' },
+];
+
 const Conferences: React.FC = () => {
-  const { t } = useLanguage();
+  const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [openSubmenus, setOpenSubmenus] = useState<Record<string, boolean>>({
+    community: true,
+  });
+  const [activeNav, setActiveNav] = useState('community');
+  const [activeSubItem, setActiveSubItem] = useState('Learnyst Communities');
+  const [showModal, setShowModal] = useState(false);
+  const [communityName, setCommunityName] = useState('');
+  const [communityType, setCommunityType] = useState<'Learnyst' | 'Telegram'>('Learnyst');
+  const [communities, setCommunities] = useState<Community[]>([]);
+  const [toastMessage, setToastMessage] = useState('');
+  const [showToast, setShowToast] = useState(false);
+
+  useEffect(() => {
+    if (!showModal) {
+      return;
+    }
+
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setShowModal(false);
+      }
+    };
+
+    document.addEventListener('keydown', handleEscape);
+    return () => document.removeEventListener('keydown', handleEscape);
+  }, [showModal]);
+
+  useEffect(() => {
+    if (!showToast) {
+      return;
+    }
+
+    const timer = window.setTimeout(() => setShowToast(false), 2800);
+    return () => window.clearTimeout(timer);
+  }, [showToast]);
+
+  const triggerToast = (message: string) => {
+    setToastMessage(message);
+    setShowToast(true);
+  };
+
+  const handleToggleSubmenu = (key: string) => {
+    setOpenSubmenus((prev) => ({
+      ...prev,
+      [key]: !prev[key],
+    }));
+  };
+
+  const handleNavigate = (id: string) => {
+    setActiveNav(id);
+    triggerToast(`Navigating to ${id}...`);
+  };
+
+  const handleCreateCommunity = () => {
+    const trimmedName = communityName.trim();
+
+    if (!trimmedName) {
+      window.alert('Please enter a community name.');
+      return;
+    }
+
+    setCommunities((prev) => [...prev, { name: trimmedName, type: communityType }]);
+    setCommunityName('');
+    setCommunityType('Learnyst');
+    setShowModal(false);
+    triggerToast(`Community "${trimmedName}" created!`);
+  };
+
+  const handleDeleteCommunity = (index: number) => {
+    const community = communities[index];
+
+    if (!community) {
+      return;
+    }
+
+    if (!window.confirm(`Delete "${community.name}"?`)) {
+      return;
+    }
+
+    setCommunities((prev) => prev.filter((_, itemIndex) => itemIndex !== index));
+    triggerToast('Community deleted.');
+  };
+
+  const handleLogout = () => {
+    if (window.confirm('Are you sure you want to log out?')) {
+      triggerToast('Logged out successfully');
+    }
+  };
 
   return (
-    <section id="conferences" className="section-padding bg-muted/30">
-      <div className="container-max">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12"
-        >
-          <h2 className="section-heading mb-2">{t.conferences.heading}</h2>
-          <p className="text-muted-foreground">{t.conferences.subheading}</p>
-          <div className="w-20 h-1 gradient-gold mx-auto rounded-full mt-4" />
-        </motion.div>
+    <section id="conferences" className="ics-community-wrapper">
+      <div className="ics-community-app">
+        <aside className={`ics-sidebar ${sidebarOpen ? '' : 'collapsed'}`}>
+          <button
+            type="button"
+            className="ics-toggle-sidebar"
+            onClick={() => setSidebarOpen((prev) => !prev)}
+            aria-label="Toggle sidebar"
+          >
+            {sidebarOpen ? '<' : '>'}
+          </button>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {conferences.map((conf, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-20px' }}
-              transition={{ duration: 0.4, delay: i * 0.04 }}
-              className="group bg-card border border-border rounded-[16px] p-5 shadow-card-premium card-3d hover:-translate-y-1 hover:shadow-xl transition-all"
-            >
-              <div className="mb-4 h-1 w-14 rounded-full bg-gradient-to-r from-gold/70 to-teal/60" />
-              <div className="flex items-center justify-between gap-3 mb-3">
-                <div className="flex items-center gap-2">
-                  <Calendar className="w-4 h-4 text-gold" />
-                  <span className="text-xs font-bold text-gold min-w-[36px]">{conf.year}</span>
-                </div>
-                <span className={`text-[11px] font-medium px-2 py-1 rounded-full border flex-shrink-0 ${typeColors[conf.type] || 'bg-muted text-muted-foreground border-border'}`}>
-                  {conf.type}
-                </span>
-              </div>
-              <div className="min-w-0">
-                <h3 className="text-sm font-semibold leading-snug text-foreground group-hover:text-gold transition-colors">{conf.title}</h3>
-                <div className="mt-2 min-h-4">
-                  {conf.location ? (
-                    <div className="flex items-center gap-1">
-                      <MapPin className="w-3 h-3 text-muted-foreground" />
-                      <span className="text-xs text-muted-foreground">{conf.location}</span>
+          <div className="ics-sidebar-logo">
+            <div className="ics-logo-box">iCS GLOBAL</div>
+          </div>
+
+          <div className="ics-sidebar-search">
+            <input type="text" placeholder="Search" />
+          </div>
+
+          <nav className="ics-nav">
+            {navItems.map((item) => {
+              const isOpen = !!openSubmenus[item.id];
+              const isActive = activeNav === item.id;
+
+              return (
+                <div key={item.id} className="ics-nav-block">
+                  <button
+                    type="button"
+                    className={`ics-nav-item ${isActive ? 'active' : ''} ${isOpen ? 'open' : ''}`}
+                    onClick={() => {
+                      if (item.hasSubmenu) {
+                        setActiveNav(item.id);
+                        handleToggleSubmenu(item.id);
+                        return;
+                      }
+
+                      handleNavigate(item.id);
+                    }}
+                  >
+                    <span>{item.label}</span>
+                    {item.hasSubmenu ? <span className="ics-chevron">v</span> : null}
+                  </button>
+
+                  {item.hasSubmenu ? (
+                    <div className={`ics-sub-menu ${isOpen ? 'open' : ''}`}>
+                      {(item.submenu || []).map((subItem) => (
+                        <button
+                          key={subItem}
+                          type="button"
+                          className={`ics-sub-item ${activeSubItem === subItem ? 'active' : ''}`}
+                          onClick={() => {
+                            setActiveSubItem(subItem);
+                            setActiveNav(item.id);
+                          }}
+                        >
+                          {subItem}
+                        </button>
+                      ))}
                     </div>
-                  ) : (
-                    <span className="text-xs text-muted-foreground">Venue details available on request</span>
-                  )}
+                  ) : null}
                 </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+              );
+            })}
+          </nav>
 
-        <div className="mt-10">
-          <h3 className="mb-4 text-lg font-bold text-foreground">Conference Highlights</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 items-stretch">
-            {conferenceImages.map((fileName, i) => (
-              <motion.div
-                key={fileName}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-20px' }}
-                transition={{ duration: 0.35, delay: i * 0.04 }}
-                className="group h-full rounded-[16px] border border-border bg-card p-3 shadow-card-premium transition-all hover:-translate-y-1 hover:shadow-xl flex flex-col"
-              >
-                <div className="relative aspect-square overflow-hidden rounded-[12px] border border-border/70 bg-muted/20 p-2">
-                  <img
-                    src={`/assets/awards/${fileName}`}
-                    alt={fileName}
-                    loading="lazy"
-                    className={`${getAwardImageClass(fileName)} ${isStraightFrameImage(fileName) ? '' : 'transition-transform duration-300 group-hover:scale-105'}`}
-                  />
-                  <span className="absolute left-2 top-2 rounded-full border border-teal/30 bg-background/85 px-2 py-0.5 text-[10px] font-semibold text-teal">
-                    Conference
-                  </span>
+          <button type="button" className="ics-sidebar-footer" onClick={handleLogout}>
+            Log out
+          </button>
+        </aside>
+
+        <main className="ics-main">
+          <header className="ics-topbar">
+            <div className="ics-topbar-search-wrap">
+              <input type="text" placeholder="Search" />
+            </div>
+            <button type="button" className="ics-btn-upgrade">Upgrade</button>
+            <button type="button" className="ics-btn-learner">View As Learner</button>
+            <div className="ics-topbar-icon">?</div>
+            <div className="ics-topbar-icon">!</div>
+            <div className="ics-avatar">J</div>
+          </header>
+
+          <div className="ics-content">
+            {communities.length === 0 ? (
+              <div className="ics-community-card">
+                <h2>Community</h2>
+                <p>Create and manage Community</p>
+              </div>
+            ) : null}
+
+            <div className={`ics-community-list ${communities.length > 0 ? 'show' : ''}`}>
+              {communities.map((community, index) => (
+                <div key={`${community.name}-${index}`} className="ics-comm-row">
+                  <div className="ics-comm-icon">C</div>
+                  <div className="ics-comm-info">
+                    <div className="name">{community.name}</div>
+                    <div className="type">{community.type} Community</div>
+                  </div>
+                  <div className="ics-comm-actions">
+                    <button
+                      type="button"
+                      onClick={() => triggerToast(`Opening ${community.name}...`)}
+                    >
+                      Open
+                    </button>
+                    <button
+                      type="button"
+                      className="del"
+                      onClick={() => handleDeleteCommunity(index)}
+                    >
+                      Delete
+                    </button>
+                  </div>
                 </div>
-                <h4 className="px-1 pt-3 text-sm font-semibold leading-snug text-foreground min-h-[3.25rem]">{formatTitle(fileName)}</h4>
-              </motion.div>
-            ))}
+              ))}
+            </div>
+
+            <div className="ics-create-row">
+              <button type="button" className="ics-btn-create" onClick={() => setShowModal(true)}>
+                + Create
+              </button>
+            </div>
+          </div>
+        </main>
+
+        <div
+          className={`ics-modal-overlay ${showModal ? 'show' : ''}`}
+          onMouseDown={(event) => {
+            if (event.target === event.currentTarget) {
+              setShowModal(false);
+            }
+          }}
+        >
+          <div className="ics-modal">
+            <h3>Create Community</h3>
+            <p>Set up a new community for your learners</p>
+            <label htmlFor="commName">Community Name</label>
+            <input
+              id="commName"
+              type="text"
+              value={communityName}
+              onChange={(event) => setCommunityName(event.target.value)}
+              placeholder="e.g. ICS Batch 2025"
+            />
+            <label htmlFor="commType">Type</label>
+            <select
+              id="commType"
+              value={communityType}
+              onChange={(event) => setCommunityType(event.target.value as 'Learnyst' | 'Telegram')}
+            >
+              <option value="Learnyst">Learnyst Community</option>
+              <option value="Telegram">Telegram</option>
+            </select>
+            <div className="ics-modal-footer">
+              <button type="button" className="ics-btn-cancel" onClick={() => setShowModal(false)}>
+                Cancel
+              </button>
+              <button type="button" className="ics-btn-save" onClick={handleCreateCommunity}>
+                Create
+              </button>
+            </div>
           </div>
         </div>
+
+        <div className={`ics-toast ${showToast ? 'show' : ''}`}>{toastMessage}</div>
       </div>
     </section>
   );
