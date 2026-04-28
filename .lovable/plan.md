@@ -1,5 +1,5 @@
 
-# Premium Director Portfolio Website — Dr. Arpita Pankaj Kathane
+# Premium Director Portfolio Website — Dr. Arpita Kathane
 
 ## Overview
 A high-end, production-ready corporate portfolio website built with React 18 + TypeScript + Vite + Tailwind CSS + Shadcn UI + Framer Motion. The site will feel like a handcrafted premium agency build — not a template.
@@ -46,7 +46,7 @@ A high-end, production-ready corporate portfolio website built with React 18 + T
 ### 2. Hero Section
 - Full-viewport animated banner
 - Professional photo of Dr. Arpita (from Cloudinary URL) in a glassmorphism frame
-- Animated text: **Dr. Arpita Pankaj Kathane**, Director – ICS Global, Design Thinker & Author
+- Animated text: **Dr. Arpita Kathane**, Director – ICS Global, Design Thinker & Author
 - Tagline: "15+ years of excellence in education, training, research & leadership"
 - Two CTA buttons: **Download Resume** (links to Google Drive) + **Contact Now** (scrolls to contact)
 - Animated gradient/particle background
