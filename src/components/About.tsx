@@ -56,7 +56,7 @@ const About: React.FC = () => {
               <div className="relative w-full bg-muted/30 media-frame flex items-center justify-center p-2">
                 <img
                   src={PHOTO_URL}
-                  alt="Dr. Arpita Pankaj Kathane"
+                  alt="Dr. Arpita Kathane"
                   className="w-full h-auto max-h-[540px] object-contain object-center rounded-[16px]"
                   loading="lazy"
                 />
@@ -93,7 +93,7 @@ const About: React.FC = () => {
             className="lg:col-span-6"
           >
             <h3 className="text-2xl font-bold text-foreground mb-2">
-              Dr. Arpita Pankaj Kathane
+              Dr. Arpita Kathane
             </h3>
 
             <p className="text-gold font-semibold mb-1 text-sm">Director & Chief Operating Officer</p>
