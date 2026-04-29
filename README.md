@@ -1,5 +1,5 @@
 
-# Premium Director Portfolio Website — Dr. Arpita Kathane
+# Director Portfolio Website — Dr. Arpita Kathane
 
 ## Overview
 A high-end, production-ready corporate portfolio website built with React 18 + TypeScript + Vite + Tailwind CSS + Shadcn UI + Framer Motion. The site will feel like a handcrafted premium agency build — not a template.
