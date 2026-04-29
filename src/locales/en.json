@@ -12,7 +12,7 @@
     "resume": "Resume"
   },
   "hero": {
-    "name": "Dr. Arpita Pankaj Kathane",
+    "name": "Dr. Arpita Kathane",
     "title": "Director – ICS Global",
     "subtitle": "Design Thinker & Author",
     "tagline": "18+ years of excellence in Academic and Corporate Training",
@@ -101,7 +101,6 @@
     "successDesc": "Thank you for reaching out. Dr. Arpita will get back to you shortly."
   },
   "footer": {
-    "rights": "All rights reserved.",
-    "builtBy": "Built by"
+    "rights": "All rights reserved."
   }
 }

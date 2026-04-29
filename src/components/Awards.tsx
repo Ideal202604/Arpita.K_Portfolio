@@ -23,10 +23,7 @@ const awardItems: AwardItem[] = [
   { src: '/assets/awards/BEST LEADER 2020.png', title: formatTitle('BEST LEADER 2020.png'), localFileName: 'BEST LEADER 2020.png' },
   { src: '/assets/awards/Selected as a PMA Coordinator.png', title: formatTitle('Selected as a PMA Coordinator.png'), localFileName: 'Selected as a PMA Coordinator.png' },
   { src: '/assets/awards/Business ICON Award.png', title: formatTitle('Business ICON Award.png'), localFileName: 'Business ICON Award.png' },
-  {
-    src: 'https://media.licdn.com/dms/image/v2/C4E22AQGzH3VmskXgPQ/feedshare-shrink_800/feedshare-shrink_800/0/1604126498911?e=1776297600&v=beta&t=1K5hmmoQBLR47Tzkwguf9i04ABp7SOKAfKiQGtEowaQ',
-    title: 'Successfully completed the Women Startup Programme-IIM Bangalore (NSRCEL).',
-  },
+  // NSRCEL card removed
 ];
 
 const Awards: React.FC = () => {

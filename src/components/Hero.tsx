@@ -165,7 +165,7 @@ const Hero: React.FC = () => {
                 <div className="relative overflow-hidden rounded-[16px] w-[84vw] max-w-[320px] sm:w-[52vw] sm:max-w-[370px] md:w-[40vw] md:max-w-[390px] lg:w-[clamp(300px,30vw,360px)] bg-muted/30 media-frame flex items-center justify-center p-2">
                   <img
                     src={PHOTO_URL}
-                    alt="Dr. Arpita Pankaj Kathane"
+                    alt="Dr. Arpita Kathane"
                     className="w-full h-auto max-h-[380px] sm:max-h-[430px] md:max-h-[470px] lg:max-h-[500px] object-contain object-center"
                     loading="lazy"
                   />

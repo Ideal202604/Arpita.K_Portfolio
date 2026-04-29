@@ -2,21 +2,7 @@
   padding: 24px 0;
 }
 
-.ics-community-app,
-.ics-community-app * {
-  box-sizing: border-box;
-}
-
-.ics-community-app {
-  font-family: 'Segoe UI', sans-serif;
-  background: #f5f6fa;
-  display: flex;
-  min-height: 100vh;
-  width: 100%;
-  overflow: hidden;
-  border-radius: 12px;
-  border: 1px solid #e5e7eb;
-}
+/* .ics-community-app rules removed — section deleted from markup */
 
 .ics-sidebar {
   width: 205px;
@@ -540,10 +526,7 @@
 }
 
 @media (max-width: 900px) {
-  .ics-community-app {
-    min-height: 100dvh;
-    border-radius: 0;
-  }
+  /* removed .ics-community-app responsive rules */
 
   .ics-topbar {
     flex-wrap: wrap;

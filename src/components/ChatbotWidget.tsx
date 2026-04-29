@@ -18,8 +18,13 @@ const ChatbotWidget: React.FC = () => {
 
   return (
     <div
-      className="elfsight-app-8fdfb546-70ef-4be1-8142-05a8bc16f51b fixed bottom-4 right-4 z-[70]"
+      className="elfsight-app-8fdfb546-70ef-4be1-8142-05a8bc16f51b fixed right-4 z-[70]"
       data-elfsight-app-lazy
+      style={{
+        /* === CHATBOT POSITIONING: Above footer, responsive === */
+        bottom: 'clamp(24px, 5vw, 100px)', /* Responsive bottom spacing */
+        /* Prevents overlap with footer content on mobile/tablet/desktop */
+      }}
     />
   );
 };

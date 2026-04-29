@@ -40,21 +40,6 @@ const researchBuckets = [
     ],
   },
   {
-    title: 'Book Chapters',
-    icon: FileText,
-    border: 'border-gold/30',
-    iconColor: 'text-gold',
-    tagBg: 'bg-gold/15 border-gold/30 text-gold',
-    glow: 'from-gold/25 to-transparent',
-    items: [
-      {
-        title: 'Impact of Design Thinking On Teaching and Learning',
-        description: 'Chapter contribution on applying Design Thinking in modern pedagogy and learner experience.',
-        institution: 'Published Book Chapter',
-      },
-    ],
-  },
-  {
     title: 'Conference Papers',
     icon: Mic,
     border: 'border-teal/30',

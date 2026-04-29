@@ -23,12 +23,17 @@ const Index = () => {
   return (
     <ThemeProvider>
       <LanguageProvider>
-        <div className="relative min-h-screen overflow-x-clip motion-stage flex flex-col">
+        {/* === FULL-HEIGHT CONTAINER: Ensures body fills viewport === */}
+        <div className="relative h-screen overflow-x-clip motion-stage flex flex-col">
+          {/* Background atmosphere layers */}
           <div className="pointer-events-none fixed inset-0 -z-10 page-atmosphere" />
           <div className="pointer-events-none fixed -top-28 -left-20 -z-10 h-[26rem] w-[26rem] rounded-full bg-gold/10 blur-3xl motion-blob-gold" />
           <div className="pointer-events-none fixed -bottom-36 -right-20 -z-10 h-[28rem] w-[28rem] rounded-full bg-teal/12 blur-3xl motion-blob-teal" />
+
           <SiteMotion />
           <Navbar />
+
+          {/* === MAIN CONTENT: Expands to fill available space === */}
           <main className="relative z-10 flex-1">
             <Hero />
             <Suspense fallback={<div className="h-40" />}>
@@ -44,12 +49,16 @@ const Index = () => {
               <Contact />
             </Suspense>
           </main>
-          <div className="mt-auto">
-            <Suspense fallback={null}>
-              <Footer />
-            </Suspense>
-          </div>
+
+          {/* === FOOTER: Shrinks but never grows, always at bottom === */}
+          <Suspense fallback={null}>
+            <Footer />
+          </Suspense>
+
+          {/* Navigation buttons */}
           <ScrollNavButtons />
+
+          {/* === CHATBOT WIDGET: Positioned above footer === */}
           <ChatbotWidget />
         </div>
       </LanguageProvider>

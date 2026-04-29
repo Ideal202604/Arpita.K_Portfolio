@@ -50,15 +50,10 @@ const corporateTraining = [
 
 const workshopImages = {
   academic: [
-    'https://media.licdn.com/dms/image/v2/D4D22AQHn2ca3aAmj4Q/feedshare-shrink_800/B4DZ0ZQCXmKQAc-/0/1774245127904?e=1776297600&v=beta&t=cYd2h2D9vtU4DhvoBAuR1IjgmsDJNJKDTaN8ObeGdmk',
     'WORKSHOPS ON RESUME WRITING AT SHREEYASH COLLEGE OF ENGINEERING, CH. SAMBHAJI NAGAR.png',
     'WORKSHOPS ON RESUME WRITING AT SHREEYASH COLLEGE OF ENGINEERING, CH. SAMBHAJI NAGAR2.png',
     'WORKSHOPS ON RESUME WRITING AT MGM UNIVERSITY, CH. SAMBHAJI NAGAR.png',
     'SESSION ON EXAM STRESS MANAGEMENT AT MGM UNIVERSITY, CH. SAMBHAJI NAGAR.png',
-    'https://media.licdn.com/dms/image/v2/D4D22AQEFJ6-mTWZQbg/feedshare-shrink_800/feedshare-shrink_800/0/1683353822195?e=1776297600&v=beta&t=aQxt14Inb8J2qD2jvRVFlD6xj3laDG9ElQnT97tYP3w',
-    'https://media.licdn.com/dms/image/v2/D4D22AQHgxGb7u2p5Kg/feedshare-shrink_1280/feedshare-shrink_1280/0/1697892902335?e=1776297600&v=beta&t=PPnW3ggt_9F5oAUf-spbBh17G72U-zuYYqDY7ZvO7UM',
-    'https://media.licdn.com/dms/image/v2/D4D22AQE8lbTd_1zCpg/feedshare-shrink_800/feedshare-shrink_800/0/1702739242972?e=1776297600&v=beta&t=Mf-ufm3CTOvHyiLmoe395PECof3C_YuiWJ4ngrIVNeE',
-    'https://media.licdn.com/dms/image/v2/D4D22AQHgKZ-ZEpv_1w/feedshare-shrink_800/feedshare-shrink_800/0/1701770410031?e=1776297600&v=beta&t=FkakCPfueNlKdWpBHmwRcalVWkSM3ahfzXIeLXWB9JY',
   ],
   corporate: [
     'DESIGN THINKING COURSE @ SYMBIOSIS ROBOTICS AND AUTOMATION ENGINEERING DEPT.png',
@@ -75,11 +70,6 @@ const workshopImages = {
 } as const;
 
 const customWorkshopTitles: Record<string, string> = {
-  'https://media.licdn.com/dms/image/v2/D4D22AQHn2ca3aAmj4Q/feedshare-shrink_800/B4DZ0ZQCXmKQAc-/0/1774245127904?e=1776297600&v=beta&t=cYd2h2D9vtU4DhvoBAuR1IjgmsDJNJKDTaN8ObeGdmk': 'Two Mental Health sessions in one day for Ex-Bankers & Undergrads PVPIT, Bavdhan 6122 Pune',
-  'https://media.licdn.com/dms/image/v2/D4D22AQEFJ6-mTWZQbg/feedshare-shrink_800/feedshare-shrink_800/0/1683353822195?e=1776297600&v=beta&t=aQxt14Inb8J2qD2jvRVFlD6xj3laDG9ElQnT97tYP3w': "Teacher’s Training",
-  'https://media.licdn.com/dms/image/v2/D4D22AQHgxGb7u2p5Kg/feedshare-shrink_1280/feedshare-shrink_1280/0/1697892902335?e=1776297600&v=beta&t=PPnW3ggt_9F5oAUf-spbBh17G72U-zuYYqDY7ZvO7UM': 'Idea Pitch Competition.',
-  'https://media.licdn.com/dms/image/v2/D4D22AQE8lbTd_1zCpg/feedshare-shrink_800/feedshare-shrink_800/0/1702739242972?e=1776297600&v=beta&t=Mf-ufm3CTOvHyiLmoe395PECof3C_YuiWJ4ngrIVNeE': 'Email-Ethics Workshop',
-  'https://media.licdn.com/dms/image/v2/D4D22AQHgKZ-ZEpv_1w/feedshare-shrink_800/feedshare-shrink_800/0/1701770410031?e=1776297600&v=beta&t=FkakCPfueNlKdWpBHmwRcalVWkSM3ahfzXIeLXWB9JY': 'TKick exam stress ',
 };
 
 const squareWorkshopFrameImages = new Set([
