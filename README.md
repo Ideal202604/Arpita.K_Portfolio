@@ -134,13 +134,6 @@ A high-end, production-ready corporate portfolio website built with React 18 + T
 - Professional send button
 - Optional Google Map embed for Pune
 
-### 14. Footer
-- Copyright, social links, clean minimal design
-- **Developer Credit**: Small "⚡ Built by" icon → click opens a professional popup/modal
-  - Developer: **Wajid Daud Tamboli** — Full Stack Developer & UI/UX Designer, Idealizeer Content Solution
-  - Contact: +91 9667033839 | wajiddaudtamboli123@gmail.com
-  - Links (with professional icons): Portfolio, Figma, Framer, LinkedIn, GitHub
-
 ---
 
 ## ⚡ Performance & SEO
